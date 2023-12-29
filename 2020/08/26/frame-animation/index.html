@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>【前端杂谈】第一期：逐帧动画和在线工具制作 | nostar&#39;blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="逐帧动画生成器 - ns frame by frame animation 在线地址">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【前端杂谈】第一期：逐帧动画和在线工具制作">
+<meta property="og:url" content="http://nostarsnow.github.io/2020/08/26/frame-animation/index.html">
+<meta property="og:site_name" content="nostar&#39;blog">
+<meta property="og:description" content="逐帧动画生成器 - ns frame by frame animation 在线地址">
+<meta property="og:locale">
+<meta property="og:image" content="https://static.zuhaowan.com/static/zhwfe/static/nostar/frame-animation/img/fanshu.gif">
+<meta property="og:image" content="https://wx1.sinaimg.cn/mw690/4d227521ly1g8ofe230zij20s80hqt9n.jpg">
+<meta property="og:image" content="https://wx3.sinaimg.cn/mw690/4d227521ly1g8ofe4fjcmj20s80swgu0.jpg">
+<meta property="article:published_time" content="2020-08-26T13:56:19.000Z">
+<meta property="article:modified_time" content="2023-12-29T07:24:07.688Z">
+<meta property="article:author" content="nostar">
+<meta property="article:tag" content="小玩意儿">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://static.zuhaowan.com/static/zhwfe/static/nostar/frame-animation/img/fanshu.gif">
+  
+  
+    <link rel="icon" href="https://i.loli.net/2019/05/27/5cebfa071b4a295715.jpg">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 7.0.0"></head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="logo">
+	<a href="/"><img lazy-src="https://i.loli.net/2019/05/27/5cebfa073a60a82008.jpg" class="js-avatar"/></a>
+</div>
+<div class="intrude-lessw">
+	<header id="header" class="inner">
+		<a class="profilepic">
+			
+			<img lazy-src="https://i.loli.net/2019/05/27/5cebfa077d8cd58987.gif" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/" class="underLine"></a></h1>
+		</hgroup>
+
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>导航</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives/">所有文章</a></li>
+				        
+							<li><a href="/tags/%E9%9A%8F%E7%AC%94/">随笔</a></li>
+				        
+							<li><a href="/tags/%E5%B0%8F%E7%8E%A9%E6%84%8F%E5%84%BF/">小玩意儿</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/nostarsnow/" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="http://t.qq.com/wuxinghongqi/" title="weibo">weibo</a>
+					        
+								<a class="mail" target="_blank" href="mailto:leizuiaili@vip.qq.com" title="mail">mail</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/%E5%B0%8F%E7%8E%A9%E6%84%8F%E5%84%BF/" style="font-size: 20px;">小玩意儿</a> <a href="/tags/%E9%9A%8F%E7%AC%94/" style="font-size: 10px;">随笔</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://tieba.baidu.com/f?kw=%C7%EB%C4%E3%D7%D4%D6%D8">百度贴吧</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">对世界你是或缺。对我。你是整个世界。</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide"></h1>
+  		<div class="logo">
+			<a href="/"><img lazy-src="https://i.loli.net/2019/05/27/5cebfa073a60a82008.jpg" class="js-avatar"/></a>
+		</div>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+			
+				<img lazy-src="https://i.loli.net/2019/05/27/5cebfa077d8cd58987.gif" class="js-avatar">
+			
+			</div>
+			<hgroup>
+			  <h1 class="header-author"></h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives/">所有文章</a></li>
+		        
+					<li><a href="/tags/%E9%9A%8F%E7%AC%94/">随笔</a></li>
+		        
+					<li><a href="/tags/%E5%B0%8F%E7%8E%A9%E6%84%8F%E5%84%BF/">小玩意儿</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/nostarsnow/" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="http://t.qq.com/wuxinghongqi/" title="weibo">weibo</a>
+			        
+						<a class="mail" target="_blank" href="mailto:leizuiaili@vip.qq.com" title="mail">mail</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-frame-animation" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      【前端杂谈】第一期：逐帧动画和在线工具制作
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%B0%8F%E7%8E%A9%E6%84%8F%E5%84%BF/" rel="tag">小玩意儿</a></li></ul>
+	</div>
+
+        
+
+        <div class="article-meta">
+          <a href="/2020/08/26/frame-animation/" class="article-date">
+  	<time datetime="2020-08-26T13:56:19.000Z" itemprop="datePublished">2020-08-26</time>
+</a>
+        </div>
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>逐帧动画生成器 - ns frame by frame animation</p>
+<p><a href="https://nostarsnow.github.io/frame-animation/" target="_blank">在线地址</a></p>
+<a id="more"></a>
+<h2 id="需求源自于业务"><a href="#需求源自于业务" class="headerlink" title="需求源自于业务"></a>需求源自于业务</h2><h3 id="需求来源"><a href="#需求来源" class="headerlink" title="需求来源"></a>需求来源</h3><ol>
+<li>动画表现力强</li>
+<li>老旧客户端对动图支持差</li>
+<li>ui导出的gif失真</li>
+</ol>
+<h3 id="需求分析"><a href="#需求分析" class="headerlink" title="需求分析"></a>需求分析</h3><ol>
+<li>apng和webp兼容性差，gif色彩不够丰富且文件太大不易无损压缩，svg限制太多，svga对设计软件支持度低……</li>
+<li>逐帧动画方式年代久远，是一种最原始的方式，最原始也就最有效，且在网页中生成的png图色彩支持度高，无损压缩方案成熟。</li>
+<li>逐帧动画在一定程度上可以防止图片盗链问题。</li>
+</ol>
+<h3 id="什么是逐帧动画？"><a href="#什么是逐帧动画？" class="headerlink" title="什么是逐帧动画？"></a>什么是逐帧动画？</h3><p>逐帧动画（Frame By Frame）是一种常见的动画形式，其原理是在“连续的关键帧”中分解动画动作，也就是在时间轴的每帧上逐帧绘制不同的内容，使其连续播放而成动画。</p>
+<p><img src="https://static.zuhaowan.com/static/zhwfe/static/nostar/frame-animation/img/fanshu.gif" alt="翻书动画"></p>
+<h3 id="什么是帧"><a href="#什么是帧" class="headerlink" title="什么是帧"></a>什么是帧</h3><p>非数据帧，而是帧数，又称为FPS（Frames Per Second）。每一帧都是静止的图象，快速连续地显示帧便形成了运动的假象。高的帧率可以得到更流畅、更逼真的动画。每秒钟帧数 (fps) 愈多，所显示的动作就会愈流畅。</p>
+<ol>
+<li>人类眼睛的视觉暂留现象是每秒24帧，所以理论上大于24帧就可以视为流畅。动画、视频等多采用25-30帧。</li>
+<li>游戏画面的变化速率很高，所以一般是越高越好。如果开启垂直同步，帧数一般应维持在60帧左右，最低也需要30帧。</li>
+</ol>
+<h3 id="其他动画类型"><a href="#其他动画类型" class="headerlink" title="其他动画类型"></a>其他动画类型</h3><p>补间动画，亦成为引导动画。绘制关键帧，中间插入的补间帧则是由计算机运算得出。分为动作补间和形状补间等。但是需要细腻处理的地方还会通过逐帧绘制来确保清晰度和流畅度。</p>
+<h2 id="曾制作过客户端形式的方案"><a href="#曾制作过客户端形式的方案" class="headerlink" title="曾制作过客户端形式的方案"></a>曾制作过客户端形式的方案</h2><h3 id="查看旧方案"><a href="#查看旧方案" class="headerlink" title="查看旧方案"></a>查看旧方案</h3><p><a href="https://github.com/nostarsnow/gif2apng" target="_blank" rel="noopener">gif2apng</a></p>
+<p><img src="https://wx1.sinaimg.cn/mw690/4d227521ly1g8ofe230zij20s80hqt9n.jpg" alt="生成中"></p>
+<p><img src="https://wx3.sinaimg.cn/mw690/4d227521ly1g8ofe4fjcmj20s80swgu0.jpg" alt="生成完毕"></p>
+<h3 id="旧方案的问题"><a href="#旧方案的问题" class="headerlink" title="旧方案的问题"></a>旧方案的问题</h3><ol>
+<li>部分功能缺失</li>
+<li>客户端更新不宜，修复bug或增加功能</li>
+<li>客户端体积较大，需下载使用不便</li>
+<li>一个页面多次使用该工具生成的代码会导致不变</li>
+</ol>
+<h3 id="解决思路"><a href="#解决思路" class="headerlink" title="解决思路"></a>解决思路</h3><ol>
+<li>增加新的功能。css step支持</li>
+<li>更换为web在线形式</li>
+<li>对生成代码进行重构，考虑多次调用的情况</li>
+<li>添加对rem的支持</li>
+</ol>
+<h2 id="制作在线工具"><a href="#制作在线工具" class="headerlink" title="制作在线工具"></a>制作在线工具</h2><h3 id="与客户端相比，难点思考"><a href="#与客户端相比，难点思考" class="headerlink" title="与客户端相比，难点思考"></a>与客户端相比，难点思考</h3><ol>
+<li>png图片上传的处理</li>
+<li>根据配置生成精灵图和代码供下载</li>
+<li>gif图片上传的处理</li>
+<li>逐帧图的查看和处理</li>
+</ol>
+<h3 id="开始制作"><a href="#开始制作" class="headerlink" title="开始制作"></a>开始制作</h3><h4 id="一、搭建环境"><a href="#一、搭建环境" class="headerlink" title="一、搭建环境"></a>一、搭建环境</h4><p>使用<code>vue</code>来初始化项目，安装依赖并搭建基本架构。</p>
+<blockquote>
+<p>尤其是在<code>package.json</code>中，将<code>scripts</code>中的<code>serve</code>替换为<code>dev</code></p>
+</blockquote>
+<h4 id="二、安装ui库。配置按需加载"><a href="#二、安装ui库。配置按需加载" class="headerlink" title="二、安装ui库。配置按需加载"></a>二、安装ui库。配置按需加载</h4><p>使用<code>element-ui</code>这个破ui库以<code>babel-plugin-component</code>和<code>@babel/plugin-transform-runtime</code>处理按需加载。</p>
+<h4 id="三、制作页面配置布局"><a href="#三、制作页面配置布局" class="headerlink" title="三、制作页面配置布局"></a>三、制作页面配置布局</h4><p>将配置的参数，使用ui库来添加好配置信息</p>
+<h4 id="四、处理图片上传"><a href="#四、处理图片上传" class="headerlink" title="四、处理图片上传"></a>四、处理图片上传</h4><blockquote>
+<p>png图片上传的处理</p>
+</blockquote>
+<ol>
+<li>出于某些原因，上传采用上传文件夹的形式，chrome中可以支持上传文件夹。目前不计划采用上传多个png图片的方式。</li>
+<li><p>上传后会筛选出文件夹下png图片，将图片顺序按照名称去除非数字的字符后正序排列。<code>e.target.files</code>是类数组，无法直接使用<code>filter/sort</code>等方法。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">uploadPng.addEventListener(<span class="string">"change"</span>, <span class="keyword">async</span> <span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> files = [].filter</span><br><span class="line">    .call(e.target.files, (v) =&gt; <span class="regexp">/\.png/</span>.test(v.name))</span><br><span class="line">    .sort(<span class="function">(<span class="params">a, b</span>) =&gt;</span> &#123;</span><br><span class="line">      <span class="keyword">let</span> an = +a.name.replace(<span class="regexp">/\D/g</span>, <span class="string">""</span>);</span><br><span class="line">      <span class="keyword">let</span> bn = +b.name.replace(<span class="regexp">/\D/g</span>, <span class="string">""</span>);</span><br><span class="line">      <span class="keyword">return</span> an - bn;</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>将所有文件格式化为可使用的对象。如下</p>
+</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">async</span> formatPng(files) &#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">await</span> <span class="built_in">Promise</span>.all(</span><br><span class="line">    files.map(<span class="keyword">async</span> (v) =&gt; &#123;</span><br><span class="line">      <span class="keyword">let</span> img = <span class="keyword">await</span> <span class="keyword">this</span>.getFileClientRect(v);</span><br><span class="line">      <span class="keyword">let</span> data = <span class="keyword">await</span> <span class="keyword">this</span>.getFileBase64(v);</span><br><span class="line">      <span class="keyword">return</span> &#123;</span><br><span class="line">        name: v.name, <span class="comment">// 图片名称</span></span><br><span class="line">        img, <span class="comment">// new image对象</span></span><br><span class="line">        width: img.width, <span class="comment">// 图片宽度</span></span><br><span class="line">        height: img.height, <span class="comment">// 图片高度</span></span><br><span class="line">        data, <span class="comment">// 将图片转为base64</span></span><br><span class="line">      &#125;;</span><br><span class="line">    &#125;)</span><br><span class="line">  );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>gif图片上传的处理</p>
+</blockquote>
+<ol>
+<li><p>上传gif后，将gif进行截取。此段涉及到二级制处理，获取所有帧的图和每秒帧数。</p>
+</li>
+<li><p>同上格式化为可使用对象</p>
+</li>
+</ol>
+<h4 id="五、图片处理之后的处理"><a href="#五、图片处理之后的处理" class="headerlink" title="五、图片处理之后的处理"></a>五、图片处理之后的处理</h4><p>使用<code>view.js</code>来查看所有帧图片。by the way，这个库是我用过的最满意的图片查看库，已用了多年的多个项目。</p>
+<h4 id="六、生成图片和代码的处理"><a href="#六、生成图片和代码的处理" class="headerlink" title="六、生成图片和代码的处理"></a>六、生成图片和代码的处理</h4><ol>
+<li><p>通过拼接布局的方式，根据配置的行列来将所有帧图片拼接到canvas中，保存图片即将canvas转为base64之后保存。</p>
+</li>
+<li><p>因为浏览器内存限制，chrome下canvas宽高度最大值为<code>16380*16380</code>，超出则无法保存和转换为base64，因此在超出时添加了错误提醒。</p>
+</li>
+<li><p>获取生成图片的信息，宽高可以计算得出，存储文件大小有两种方式</p>
+</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// base64字符串获取保存的图片大小。一般在3/4左右</span></span><br><span class="line">base64.split(<span class="string">","</span>)[<span class="number">1</span>].length * <span class="number">3</span> / <span class="number">4</span> / <span class="number">1024</span>).toFixed(<span class="number">2</span>)</span><br><span class="line"><span class="comment">// 通过blob方式更为精确</span></span><br><span class="line">(<span class="built_in">window</span>.atob(base64.split(<span class="string">","</span>)[<span class="number">1</span>]).length / <span class="number">1024</span>).toFixed(<span class="number">2</span>)</span><br></pre></td></tr></table></figure>
+<ol start="4">
+<li><p>输出代码并添加样式美化。因为皆是html代码，因此使用的是<code>highlight.js/styles/vs2015.css</code>的风格</p>
+</li>
+<li><p>添加图片和代码的复制下载</p>
+</li>
+<li><p>在iframe中实现预览。不污染本页面</p>
+</li>
+<li><p>完成！</p>
+</li>
+</ol>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>其实还缺少一些功能，png多图上传、帧图自定义的编辑/删除/排序功能、在线图片压缩功能（目前用的tinypng）等等，还需看情况待定添加。</p>
+<h2 id="需求，美化于业务"><a href="#需求，美化于业务" class="headerlink" title="需求，美化于业务"></a>需求，美化于业务</h2><p>需求不是无缘无故产生的，而业务，也不是一尘不变的。 </p>
+<p>只有相互映衬配合，才能相得益彰，互相成就。</p>
+<p>大鹏一日同风起。扶摇直上九万里！</p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2022/01/01/A-Lot-Npm-Package/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">←</strong>
+      <div class="article-nav-title">
+        
+          这两年发布的一堆npm包，有那么点儿用，但不多
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/01/20/typemonkey/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">web实现抖音字说文字动画，就是抖音常见念文字配的视频动画</div>
+      <strong class="article-nav-caption">→</strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+
+
+
+
+  <div id="git-comment"></div>
+<link rel="stylesheet" href="/js/gitcomment/index.css"/>
+
+<script src="/js/gitcomment/index.js"></script>
+
+<script>
+var gitment = new Gitment({
+  id: 'Wed Aug 26 2020 21:56:19 GMT+0800', // 可选。默认为 location.href
+  owner: 'nostarsnow',
+  repo: 'nostarsnow.github.io',
+  oauth: {
+    client_id: 'c85b4116dd5568a953a2',
+    client_secret: '0bfbd427d69accdbece179a9a7e7fe818eeab88d',
+  },
+})
+gitment.render('git-comment')
+</script>
+
+
+
+
+  <div class="post-toc"></div>
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2023 nostar
+    	</div>
+      <div class="footer-right">
+      		
+      </div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+
+<script src="https://unpkg.com/requirejs@2.1.6/require.js"></script>
+
+
+<script src="https://www.unpkg.com/jquery@1.9.1/jquery.min.js"></script>
+
+
+<script src="/js/main.js"></script>
+
+
+<script src="https://s95.cnzz.com/z_stat.php?id=1257879728&web_id=1257879728.js"></script>
+
+
+
+<!--
+ -->
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="https://cdn.bootcss.com/mathjax/2.6.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>

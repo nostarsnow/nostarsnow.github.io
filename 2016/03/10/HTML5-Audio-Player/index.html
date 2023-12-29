@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>HTML5-Audio-Player在线音乐播放器 | nostar&#39;blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="在线预览：Demo。。。算了。不值得 github  一个自己玩耍做的在线音乐播放器。功能有音乐播放、进度音量调节、单曲循环随机播放模式、lrc歌词解析同步展示等。只是实现了功能。模块化什么的真的有必要吗？">
+<meta property="og:type" content="article">
+<meta property="og:title" content="HTML5-Audio-Player在线音乐播放器">
+<meta property="og:url" content="http://nostarsnow.github.io/2016/03/10/HTML5-Audio-Player/index.html">
+<meta property="og:site_name" content="nostar&#39;blog">
+<meta property="og:description" content="在线预览：Demo。。。算了。不值得 github  一个自己玩耍做的在线音乐播放器。功能有音乐播放、进度音量调节、单曲循环随机播放模式、lrc歌词解析同步展示等。只是实现了功能。模块化什么的真的有必要吗？">
+<meta property="og:locale">
+<meta property="og:image" content="https://i.loli.net/2019/05/27/5cebfa073a60a82008.jpg">
+<meta property="article:published_time" content="2016-03-10T13:32:42.000Z">
+<meta property="article:modified_time" content="2019-05-27T14:57:10.000Z">
+<meta property="article:author" content="nostar">
+<meta property="article:tag" content="小玩意儿">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.loli.net/2019/05/27/5cebfa073a60a82008.jpg">
+  
+  
+    <link rel="icon" href="https://i.loli.net/2019/05/27/5cebfa071b4a295715.jpg">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 7.0.0"></head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="logo">
+	<a href="/"><img lazy-src="https://i.loli.net/2019/05/27/5cebfa073a60a82008.jpg" class="js-avatar"/></a>
+</div>
+<div class="intrude-lessw">
+	<header id="header" class="inner">
+		<a class="profilepic">
+			
+			<img lazy-src="https://i.loli.net/2019/05/27/5cebfa077d8cd58987.gif" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/" class="underLine"></a></h1>
+		</hgroup>
+
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>导航</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives/">所有文章</a></li>
+				        
+							<li><a href="/tags/%E9%9A%8F%E7%AC%94/">随笔</a></li>
+				        
+							<li><a href="/tags/%E5%B0%8F%E7%8E%A9%E6%84%8F%E5%84%BF/">小玩意儿</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/nostarsnow/" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="http://t.qq.com/wuxinghongqi/" title="weibo">weibo</a>
+					        
+								<a class="mail" target="_blank" href="mailto:leizuiaili@vip.qq.com" title="mail">mail</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/%E5%B0%8F%E7%8E%A9%E6%84%8F%E5%84%BF/" style="font-size: 20px;">小玩意儿</a> <a href="/tags/%E9%9A%8F%E7%AC%94/" style="font-size: 10px;">随笔</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://tieba.baidu.com/f?kw=%C7%EB%C4%E3%D7%D4%D6%D8">百度贴吧</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">对世界你是或缺。对我。你是整个世界。</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide"></h1>
+  		<div class="logo">
+			<a href="/"><img lazy-src="https://i.loli.net/2019/05/27/5cebfa073a60a82008.jpg" class="js-avatar"/></a>
+		</div>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+			
+				<img lazy-src="https://i.loli.net/2019/05/27/5cebfa077d8cd58987.gif" class="js-avatar">
+			
+			</div>
+			<hgroup>
+			  <h1 class="header-author"></h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives/">所有文章</a></li>
+		        
+					<li><a href="/tags/%E9%9A%8F%E7%AC%94/">随笔</a></li>
+		        
+					<li><a href="/tags/%E5%B0%8F%E7%8E%A9%E6%84%8F%E5%84%BF/">小玩意儿</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/nostarsnow/" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="http://t.qq.com/wuxinghongqi/" title="weibo">weibo</a>
+			        
+						<a class="mail" target="_blank" href="mailto:leizuiaili@vip.qq.com" title="mail">mail</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-HTML5-Audio-Player" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      HTML5-Audio-Player在线音乐播放器
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%B0%8F%E7%8E%A9%E6%84%8F%E5%84%BF/" rel="tag">小玩意儿</a></li></ul>
+	</div>
+
+        
+
+        <div class="article-meta">
+          <a href="/2016/03/10/HTML5-Audio-Player/" class="article-date">
+  	<time datetime="2016-03-10T13:32:42.000Z" itemprop="datePublished">2016-03-10</time>
+</a>
+        </div>
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在线预览：Demo。。。算了。不值得</p>
+<p><a href="https://github.com/nostarsnow/HTML5-Audio-Player" target="_blank" rel="noopener">github</a> </p>
+<p>一个自己玩耍做的在线音乐播放器。功能有<strong>音乐播放、进度音量调节、单曲循环随机播放模式、lrc歌词解析同步展示</strong>等。只是实现了功能。模块化什么的真的有必要吗？</p>
+<a id="more"></a>
+<h2 id="初想"><a href="#初想" class="headerlink" title="初想"></a>初想</h2><p>一日闲来无事。想起了之前A岛有丧失做的一个在线音乐播放器-<strong><a href="https://kuso.ws/player/" target="_blank" rel="noopener">Kuso</a></strong>。忽然也想自己练练手。于是就模仿着Ta的风格开始制作了。 </p>
+<h3 id="设计界面"><a href="#设计界面" class="headerlink" title="设计界面"></a>设计界面</h3><p>其实我不喜欢kuso的界面。虽然不落俗于普通播放器却感觉有点儿单一。作为一个音乐播放器。封面呀、歌词呀、控制按钮呀什么的总得有吧。歌词显示一定要大。占得内容空间比例高方显大气。顶部一个导航条。左边logo右边设置项。内容区域左边播放功能界面和列表界面。右边一大部分就是歌词显示界面。OK。设计就是这么easy。。。吧？ </p>
+<h3 id="技术选型"><a href="#技术选型" class="headerlink" title="技术选型"></a>技术选型</h3><p>前端真是膨胀了呀。现在做个东西都有了技术选型了。我暗自鄙视了一下自己。css就用个<a href="https://fontawesome.io/" target="_blank" rel="noopener">fontawesome</a>字体来显示那些控制暂停播放呀什么的按钮。js就用个<a href="https://github.com/madrobby/zepto" target="_blank" rel="noopener">zepto</a>绰绰有余了。还想着自己组一套类jQuery的API呢。想想也没那个必要。方便即可。</p>
+<h3 id="歌词同步"><a href="#歌词同步" class="headerlink" title="歌词同步"></a>歌词同步</h3><p>看过kuso的歌词文件。是json格式。不知道对方是不是自己做的。我还是用lrc歌词吧。以前用千千静听制作过lrc。想来不就是字符串解析嘛。估计问题不大。把lrc歌词解析出来。播放到那个时间就显示哪个时间的歌词就可以了。</p>
+<h3 id="资源地址"><a href="#资源地址" class="headerlink" title="资源地址"></a>资源地址</h3><p>这个跳过不提</p>
+<h2 id="开工"><a href="#开工" class="headerlink" title="开工"></a>开工</h2><h3 id="logo"><a href="#logo" class="headerlink" title="logo"></a>logo</h3><p>先弄个logo再说。 </p>
+<p><img src="https://i.loli.net/2019/05/27/5cebfa073a60a82008.jpg" alt="logo"> </p>
+<p>丑或者不丑的。总算有个logo了。 </p>
+<h3 id="资源"><a href="#资源" class="headerlink" title="资源"></a>资源</h3><p>音乐资源。无非就是封面图、MP3音乐、lrc歌词这三样。巧了很多音乐播放器下载歌曲的时候都会下载下来（虽然有的是封面图直接嵌入到MP3文件里的）。从里面随便选了几首自己喜欢听的。为了方便写成了一个json文件。格式如下 </p>
+<pre><code class="javascript">{  
+　   <span class="string">"id"</span> : <span class="string">"3"</span>,  
+　   <span class="string">"title"</span> : <span class="string">"女人三十"</span>,  
+　   <span class="string">"artist"</span> : <span class="string">"弥与弥歌"</span>,  
+　   <span class="string">"duration"</span> : <span class="string">"04:49"</span>,  
+　   <span class="string">"media"</span> : <span class="string">"mp3/Nvrensanshi/Nvrensanshi.mp3"</span>,  
+　   <span class="string">"cover"</span> : <span class="string">"mp3/Nvrensanshi/Nvrensanshi.jpg"</span>,  
+　   <span class="string">"lrc"</span> : <span class="string">"mp3/Nvrensanshi/Nvrensanshi.lrc"</span>,  
+　   <span class="string">"type"</span> : <span class="string">"geji"</span>  
+}  
+</code></pre>
+<p>其中的duration要不要手写我纠结了许久。之后在测试了一下Audio的加载之后果断手写了。百度音乐盒也是手写的。</p>
+<h3 id="资源加载"><a href="#资源加载" class="headerlink" title="资源加载"></a>资源加载</h3><p>Audio有一个<code>progress</code>事件。现代浏览器都有支持。可以用来做加载进度显示。</p>
+<pre><code class="javascript"><span class="function"><span class="keyword">function</span> <span class="title">progress</span>(<span class="params"></span>)</span>{
+      <span class="keyword">var</span> buffered = <span class="keyword">this</span>.buffered,
+          total = <span class="keyword">this</span>.duration,
+          start = buffered.start(<span class="number">0</span>),
+          end = buffered.end(<span class="number">0</span>),
+          progress = end/total*<span class="number">100</span>;
+      <span class="built_in">console</span>.log(progress);
+  }
+  audio.addeventlistener(<span class="string">'progress'</span>,progress);
+</code></pre>
+<p>加载过程中会一直调用。知道加载进度为100%为止。</p>
+<h3 id="lrc歌词解析与同步显示"><a href="#lrc歌词解析与同步显示" class="headerlink" title="lrc歌词解析与同步显示"></a>lrc歌词解析与同步显示</h3><p>在动手之前先在网上查了一下。果然。基本大多音乐播放器都实现了解析lrc的功能。关掉那些轮子。自己开始写。通过ajax获取到lrc文本之后。有几点需要注意。 </p>
+<ol>
+<li>lrc歌词每一句都是一行。可以使用<code>\n</code>来分割。</li>
+<li>负责任的lrc制作者会添加几个属性。例如<code>[ti:女人三十]</code>是歌名。<code>[ar:弥与弥歌]</code>是歌手。<code>[al:2015AC春晚大联欢]</code>是专辑名。<code>[by:nostar]</code>是制作lrc的作者。<code>[offset:-500]</code>是通过一些音乐播放器调整的歌词毫秒数。虽然没有时间戳。但还是要展示出来并且与有时间戳的歌词分开的。尤其是offset。有时间戳的歌词都需与offset相加。才能得到正确的时间戳。</li>
+<li>时间戳分三种。<code>[00:00.00]、[00:00:00]、[00:00]</code>。而一句歌词如果整首歌重复部分比较多（比如副歌部分）会写多个时间戳。比如<code>[00:00.00][01:08.19]最可怕是人的一世青春转眼间消逝</code>。多个就是不确定多少个意思。这些都要匹配。而且会导致时间错乱。最后还需要重新排序。</li>
+<li>时间戳需要计算为具体秒或者毫秒数。并于offset相加。</li>
+<li>Audio是没有播放进度的事件的。只能用手动循环监听。因为lrc歌词精确到十毫秒。因此为了显示的准确性。循环间隔也要以毫秒计算。这种时候setTimeout和setInterval的性能缺陷就显现出来了。像做canvas动画一般。使用requestAnimationFrame比较好。但是。requestAnimationFrame也有缺点。当你离开这个标签页面的时候。为了性能考虑。requestAnimationFrame会暂停。而在音乐播放器中的直观感受就是。我不能开着播放器去看其他网页了。利弊看需要吧。</li>
+</ol>
+<h3 id="播放模式"><a href="#播放模式" class="headerlink" title="播放模式"></a>播放模式</h3><p>一般播放模式可分为单曲循环、列表循环、随机播放。使用js来做其实就是继续播放歌曲数组当前播放下标、当前下标+1。或者是随机生成一个下标。每次更改播放模式后存入localStorage即可。</p>
+<h3 id="手机适配"><a href="#手机适配" class="headerlink" title="手机适配"></a>手机适配</h3><p>。。。我没有做。为什么没做呢？因为懒得做了。我用手机干嘛还要来听这个？我才不会告诉你我做这个也是为了把自己喜欢听的歌曲整理成一个目录呢！</p>
+<h3 id="全屏适配"><a href="#全屏适配" class="headerlink" title="全屏适配"></a>全屏适配</h3><p>在web端使用js来做全屏适配还是很酷炫的。我也没有做。或许以后会做吧。其实还是蛮需要的。因为炫酷嘛。</p>
+<h3 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h3><p>比如动画、背景呀什么的乱七八糟。。。</p>
+<h2 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h2><p>在线音乐播放器。随便一搜都是一堆。自己亲自做了一下。不禁感慨。html5大法好呀。不然像以前在网页上插音乐还得用flash。做在线播放器直接整站都flash了。啧啧啧。。。</p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/03/15/Depth-of-Field/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">←</strong>
+      <div class="article-nav-title">
+        
+          Depth-of-Field - 3D景深(伪)
+        
+      </div>
+    </a>
+  
+  
+</nav>
+
+  
+</article>
+
+
+
+
+
+
+
+  <div id="git-comment"></div>
+<link rel="stylesheet" href="/js/gitcomment/index.css"/>
+
+<script src="/js/gitcomment/index.js"></script>
+
+<script>
+var gitment = new Gitment({
+  id: 'Thu Mar 10 2016 21:32:42 GMT+0800', // 可选。默认为 location.href
+  owner: 'nostarsnow',
+  repo: 'nostarsnow.github.io',
+  oauth: {
+    client_id: 'c85b4116dd5568a953a2',
+    client_secret: '0bfbd427d69accdbece179a9a7e7fe818eeab88d',
+  },
+})
+gitment.render('git-comment')
+</script>
+
+
+
+
+  <div class="post-toc"></div>
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2023 nostar
+    	</div>
+      <div class="footer-right">
+      		
+      </div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+
+<script src="https://unpkg.com/requirejs@2.1.6/require.js"></script>
+
+
+<script src="https://www.unpkg.com/jquery@1.9.1/jquery.min.js"></script>
+
+
+<script src="/js/main.js"></script>
+
+
+<script src="https://s95.cnzz.com/z_stat.php?id=1257879728&web_id=1257879728.js"></script>
+
+
+
+<!--
+ -->
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="https://cdn.bootcss.com/mathjax/2.6.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>

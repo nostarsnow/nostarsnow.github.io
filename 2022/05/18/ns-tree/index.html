@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>vscode插件nstree。图形化操作快速生成项目目录结构树 | nostar&#39;blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="平日里项目开发过程中或者项目初期开发结束后，经常会需要把项目目录结构列出来以供后人和以后的自己快速查阅。通常的方式是使用 md格式。 生成这种格式的md一般是通过cmd tree或者npm包来过滤文件生成树结构再一一添加注释。这种方法好吗？总结一下我认为的优缺点。 在线 demo。包含所有功能演示 git地址 vscode插件商城地址">
+<meta property="og:type" content="article">
+<meta property="og:title" content="vscode插件nstree。图形化操作快速生成项目目录结构树">
+<meta property="og:url" content="http://nostarsnow.github.io/2022/05/18/ns-tree/index.html">
+<meta property="og:site_name" content="nostar&#39;blog">
+<meta property="og:description" content="平日里项目开发过程中或者项目初期开发结束后，经常会需要把项目目录结构列出来以供后人和以后的自己快速查阅。通常的方式是使用 md格式。 生成这种格式的md一般是通过cmd tree或者npm包来过滤文件生成树结构再一一添加注释。这种方法好吗？总结一下我认为的优缺点。 在线 demo。包含所有功能演示 git地址 vscode插件商城地址">
+<meta property="og:locale">
+<meta property="og:image" content="https://static.zuhaowan.com/static/zhwfe/static/nostar/nstree/demo.jpg">
+<meta property="og:image" content="https://static.zuhaowan.com/static/zhwfe/static/nostar/nstree/copyPath.png">
+<meta property="og:image" content="https://static.zuhaowan.com/static/zhwfe/static/nostar/nstree/pluginInit.png">
+<meta property="og:image" content="https://static.zuhaowan.com/static/zhwfe/static/nostar/nstree/openFromVs.png">
+<meta property="og:image" content="https://static.zuhaowan.com/static/zhwfe/static/nostar/nstree/filter.png">
+<meta property="og:image" content="https://static.zuhaowan.com/static/zhwfe/static/nostar/nstree/openFile.png">
+<meta property="og:image" content="https://static.zuhaowan.com/static/zhwfe/static/nostar/nstree/editFile.png">
+<meta property="og:image" content="https://static.zuhaowan.com/static/zhwfe/static/nostar/nstree/delFile.png">
+<meta property="og:image" content="https://static.zuhaowan.com/static/zhwfe/static/nostar/nstree/clearUnless.png">
+<meta property="og:image" content="https://static.zuhaowan.com/static/zhwfe/static/nostar/nstree/exportMd.png">
+<meta property="article:published_time" content="2022-05-18T07:30:00.000Z">
+<meta property="article:modified_time" content="2023-12-29T08:06:56.297Z">
+<meta property="article:author" content="nostar">
+<meta property="article:tag" content="小玩意儿">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://static.zuhaowan.com/static/zhwfe/static/nostar/nstree/demo.jpg">
+  
+  
+    <link rel="icon" href="https://i.loli.net/2019/05/27/5cebfa071b4a295715.jpg">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 7.0.0"></head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="logo">
+	<a href="/"><img lazy-src="https://i.loli.net/2019/05/27/5cebfa073a60a82008.jpg" class="js-avatar"/></a>
+</div>
+<div class="intrude-lessw">
+	<header id="header" class="inner">
+		<a class="profilepic">
+			
+			<img lazy-src="https://i.loli.net/2019/05/27/5cebfa077d8cd58987.gif" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/" class="underLine"></a></h1>
+		</hgroup>
+
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>导航</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives/">所有文章</a></li>
+				        
+							<li><a href="/tags/%E9%9A%8F%E7%AC%94/">随笔</a></li>
+				        
+							<li><a href="/tags/%E5%B0%8F%E7%8E%A9%E6%84%8F%E5%84%BF/">小玩意儿</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/nostarsnow/" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="http://t.qq.com/wuxinghongqi/" title="weibo">weibo</a>
+					        
+								<a class="mail" target="_blank" href="mailto:leizuiaili@vip.qq.com" title="mail">mail</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/%E5%B0%8F%E7%8E%A9%E6%84%8F%E5%84%BF/" style="font-size: 20px;">小玩意儿</a> <a href="/tags/%E9%9A%8F%E7%AC%94/" style="font-size: 10px;">随笔</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://tieba.baidu.com/f?kw=%C7%EB%C4%E3%D7%D4%D6%D8">百度贴吧</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">对世界你是或缺。对我。你是整个世界。</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide"></h1>
+  		<div class="logo">
+			<a href="/"><img lazy-src="https://i.loli.net/2019/05/27/5cebfa073a60a82008.jpg" class="js-avatar"/></a>
+		</div>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+			
+				<img lazy-src="https://i.loli.net/2019/05/27/5cebfa077d8cd58987.gif" class="js-avatar">
+			
+			</div>
+			<hgroup>
+			  <h1 class="header-author"></h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives/">所有文章</a></li>
+		        
+					<li><a href="/tags/%E9%9A%8F%E7%AC%94/">随笔</a></li>
+		        
+					<li><a href="/tags/%E5%B0%8F%E7%8E%A9%E6%84%8F%E5%84%BF/">小玩意儿</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/nostarsnow/" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="http://t.qq.com/wuxinghongqi/" title="weibo">weibo</a>
+			        
+						<a class="mail" target="_blank" href="mailto:leizuiaili@vip.qq.com" title="mail">mail</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-ns-tree" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      vscode插件nstree。图形化操作快速生成项目目录结构树
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%B0%8F%E7%8E%A9%E6%84%8F%E5%84%BF/" rel="tag">小玩意儿</a></li></ul>
+	</div>
+
+        
+
+        <div class="article-meta">
+          <a href="/2022/05/18/ns-tree/" class="article-date">
+  	<time datetime="2022-05-18T07:30:00.000Z" itemprop="datePublished">2022-05-18</time>
+</a>
+        </div>
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>平日里项目开发过程中或者项目初期开发结束后，经常会需要把项目目录结构列出来以供后人和以后的自己快速查阅。通常的方式是使用 <a href="https://github.com/nostarsnow/webpack-multi-seed#%E7%9B%AE%E5%BD%95" target="_blank" rel="noopener">md格式</a>。 生成这种格式的md一般是通过<code>cmd tree</code>或者<code>npm</code>包来过滤文件生成树结构再一一添加注释。这种方法好吗？总结一下我认为的优缺点。</p>
+<p><a href="https://nostarsnow.github.io/vscode-nstree/" target="_blank">在线 demo。包含所有功能演示</a></p>
+<p><a href="https://github.com/nostarsnow/vscode-nstree" target="_blank">git地址</a></p>
+<p><a href="https://marketplace.visualstudio.com/items?itemName=nostar.nstree" target="_blank">vscode插件商城地址</a></p>
+<a id="more"></a>
+<h2 id="简单说明"><a href="#简单说明" class="headerlink" title="简单说明"></a>简单说明</h2><blockquote>
+<p>优点：好吧没什么优点，聊胜于无。</p>
+</blockquote>
+<blockquote>
+<p>缺点：添加过滤文件的配置生成麻烦、生成后手动删除麻烦、添加注释麻烦、有修改或扩展后再次对齐空格写注释麻烦。最关键的是，后人看起来也极其麻烦！</p>
+</blockquote>
+<p>如果一种方法可以按照git目录那种文件树展示就好了，可惜git上文件树后面跟的是该文件最后修改的<code>commit message</code>，既然如此，那就在自己来做一个吧！该项目目前仅为vscode版本。支持git网页也很容易，可惜网页不支持。之后可以配套个油猴插件。</p>
+<blockquote>
+<p>该文档和下面的在线 demo 中有大量的 apng 动态图片，请使用 chrome 等浏览器访问，否则图片不会动呀不会动！</p>
+</blockquote>
+<p>先放一张大效果图</p>
+<p><img src="https://static.zuhaowan.com/static/zhwfe/static/nostar/nstree/demo.jpg" alt="效果图"></p>
+<h2 id="功能介绍"><a href="#功能介绍" class="headerlink" title="功能介绍"></a>功能介绍</h2><p>以下文档中含有大量的 apng 动态图片。如果你是通过浏览器访问，请使用chrome等浏览器（我懒得检测做兼容）。</p>
+<h3 id="快速复制基于当前项目中的文件路径"><a href="#快速复制基于当前项目中的文件路径" class="headerlink" title="快速复制基于当前项目中的文件路径"></a>快速复制基于当前项目中的文件路径</h3><p>vscode自带的复制路径和复制相对路径实在不好用，因此我又重新写了一个。简单来说就是首先找到当前文件的项目根目录。（通过<code>package.json/.git/.svn</code>等文件来确定，可以通过设置来配置）</p>
+<p><img src="https://static.zuhaowan.com/static/zhwfe/static/nostar/nstree/copyPath.png" alt="快速复制基于当前项目中的文件路径"></p>
+<h3 id="初始化项目的目录结构"><a href="#初始化项目的目录结构" class="headerlink" title="初始化项目的目录结构"></a>初始化项目的目录结构</h3><p>初始化的时候请不要右击项目文件夹，因为文件夹名字是不固定的。要右击项目下的文件。初始化的时候会默认读取项目根路径下的<code>package.json</code>中的<code>name</code>字段作为项目名称。</p>
+<p><img src="https://static.zuhaowan.com/static/zhwfe/static/nostar/nstree/pluginInit.png" alt="初始化项目的目录结构"></p>
+<h3 id="打开已有的项目目录结构"><a href="#打开已有的项目目录结构" class="headerlink" title="打开已有的项目目录结构"></a>打开已有的项目目录结构</h3><p>其实和上面初始化是一个方法。也可以通过打开文件后右击或者打开文件后通过<code>ctrl+alt+p</code>选择命令一样可以。如果没有会创建。</p>
+<p><img src="https://static.zuhaowan.com/static/zhwfe/static/nostar/nstree/openFromVs.png" alt="从vscode中打开"></p>
+<h3 id="搜索过滤"><a href="#搜索过滤" class="headerlink" title="搜索过滤"></a>搜索过滤</h3><p>支持检索文件名或文件注释。该检索仅展示过滤，不影响导出等功能。</p>
+<p><img src="https://static.zuhaowan.com/static/zhwfe/static/nostar/nstree/filter.png" alt="搜索过滤"></p>
+<h3 id="从目录结构中打开文件-夹"><a href="#从目录结构中打开文件-夹" class="headerlink" title="从目录结构中打开文件(夹)"></a>从目录结构中打开文件(夹)</h3><p>右击目录或文件可以在菜单中选择。打开文件会直接使用<code>vscode</code>在第一窗口打开，打开文件夹会使用资源管理器打开该文件夹</p>
+<p><img src="https://static.zuhaowan.com/static/zhwfe/static/nostar/nstree/openFile.png" alt="从目录结构中打开文件(夹)"></p>
+<h3 id="编辑目录结构节点"><a href="#编辑目录结构节点" class="headerlink" title="编辑目录结构节点"></a>编辑目录结构节点</h3><p>右击目录或文件可以在菜单中选择。亦可通过<a href="#打开已有的项目目录结构">打开已有的项目目录结构</a>方式从vscode中打开编辑</p>
+<p><img src="https://static.zuhaowan.com/static/zhwfe/static/nostar/nstree/editFile.png" alt="从目录结构中打开文件(夹)"></p>
+<h3 id="删除目录结构节点"><a href="#删除目录结构节点" class="headerlink" title="删除目录结构节点"></a>删除目录结构节点</h3><p>仅删除目录结构中的该节点及以下所有子节点，<strong>不会删除硬盘上的文件和文件夹</strong></p>
+<p><img src="https://static.zuhaowan.com/static/zhwfe/static/nostar/nstree/delFile.png" alt="删除目录结构节点"></p>
+<h3 id="检测无效路径"><a href="#检测无效路径" class="headerlink" title="检测无效路径"></a>检测无效路径</h3><p>该方法会检测所有目录结构节点是否在硬盘中存在，并给出所有不存在的文件提示，确认删除即可删除这些不存在的节点。用于本地修改/删除了目录结构时使用。</p>
+<p><img src="https://static.zuhaowan.com/static/zhwfe/static/nostar/nstree/clearUnless.png" alt="检测无效路径"></p>
+<h3 id="导出为md格式"><a href="#导出为md格式" class="headerlink" title="导出为md格式"></a>导出为md格式</h3><p>理论上有了该插件后不再需要md格式了。但是如果一定想要的话，也支持导出。并且导出后自带格式化的空格以及注释。</p>
+<p><img src="https://static.zuhaowan.com/static/zhwfe/static/nostar/nstree/exportMd.png" alt="导出为md格式"></p>
+<h2 id="获取项目根路径的检测方式"><a href="#获取项目根路径的检测方式" class="headerlink" title="获取项目根路径的检测方式"></a>获取项目根路径的检测方式</h2><h3 id="复制路径时"><a href="#复制路径时" class="headerlink" title="复制路径时"></a>复制路径时</h3><p>从当前文件或文件夹向上（包括当前目录）检测是否存在<code>package.json/.svn/.git</code>。若存在，则以存在的目录为项目根路径。检测的文件或文件夹名字可以在配置中配置。以下不再赘述</p>
+<h3 id="编辑项目目录结构时"><a href="#编辑项目目录结构时" class="headerlink" title="编辑项目目录结构时"></a>编辑项目目录结构时</h3><p>会根据以下优先级分别检测</p>
+<ol>
+<li><p>如果当前选择文件夹下有<code>nstree.json</code>，则以当前文件夹为项目根路径</p>
+</li>
+<li><p>从当前文件或文件夹向上（包括当前目录）检测是否存在<code>package.json/.svn/.git</code>。若存在，则以存在的目录为项目根路径。</p>
+</li>
+<li><p>如果通过2的方式没有找到匹配文件，则会按照当前vscode打开的目录树根文件为根路径。</p>
+</li>
+</ol>
+<h2 id="插件后叙"><a href="#插件后叙" class="headerlink" title="插件后叙"></a>插件后叙</h2><p>该插件还有很多不尽如意的地方，比如不管英文，不自动适配亮色/暗色模式，没测试过mac等其他系统，获取项目根路径方式还有待完善等等。</p>
+<p>但是目前已经满足我的使用需求了。</p>
+<p>仰天大笑出门去。我辈岂是蓬蒿人。嘛，最后祝您身体健康，再见。！</p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2022/01/01/A-Lot-Npm-Package/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">这两年发布的一堆npm包，有那么点儿用，但不多</div>
+      <strong class="article-nav-caption">→</strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+
+
+
+
+  <div id="git-comment"></div>
+<link rel="stylesheet" href="/js/gitcomment/index.css"/>
+
+<script src="/js/gitcomment/index.js"></script>
+
+<script>
+var gitment = new Gitment({
+  id: 'Wed May 18 2022 15:30:00 GMT+0800', // 可选。默认为 location.href
+  owner: 'nostarsnow',
+  repo: 'nostarsnow.github.io',
+  oauth: {
+    client_id: 'c85b4116dd5568a953a2',
+    client_secret: '0bfbd427d69accdbece179a9a7e7fe818eeab88d',
+  },
+})
+gitment.render('git-comment')
+</script>
+
+
+
+
+  <div class="post-toc"></div>
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2023 nostar
+    	</div>
+      <div class="footer-right">
+      		
+      </div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+
+<script src="https://unpkg.com/requirejs@2.1.6/require.js"></script>
+
+
+<script src="https://www.unpkg.com/jquery@1.9.1/jquery.min.js"></script>
+
+
+<script src="/js/main.js"></script>
+
+
+<script src="https://s95.cnzz.com/z_stat.php?id=1257879728&web_id=1257879728.js"></script>
+
+
+
+<!--
+ -->
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="https://cdn.bootcss.com/mathjax/2.6.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>

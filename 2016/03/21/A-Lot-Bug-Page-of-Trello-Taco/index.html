@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>在Trello&#39;s Taco那充满bug的页面上通过url参数显示你自己的名字详解 | nostar&#39;blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="在这个充斥着各种bug的链接上—taco-spolsky.github.io。只通过url参数来实现点击按钮显示你自己的名字。的详解。。。以上。（怎么话都说不通顺了）">
+<meta property="og:type" content="article">
+<meta property="og:title" content="在Trello&#39;s Taco那充满bug的页面上通过url参数显示你自己的名字详解">
+<meta property="og:url" content="http://nostarsnow.github.io/2016/03/21/A-Lot-Bug-Page-of-Trello-Taco/index.html">
+<meta property="og:site_name" content="nostar&#39;blog">
+<meta property="og:description" content="在这个充斥着各种bug的链接上—taco-spolsky.github.io。只通过url参数来实现点击按钮显示你自己的名字。的详解。。。以上。（怎么话都说不通顺了）">
+<meta property="og:locale">
+<meta property="og:image" content="https://i.loli.net/2019/05/27/5cebfa0772f9841031.jpg">
+<meta property="article:published_time" content="2016-03-21T15:30:03.000Z">
+<meta property="article:modified_time" content="2019-05-27T14:58:54.000Z">
+<meta property="article:author" content="nostar">
+<meta property="article:tag" content="小玩意儿">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.loli.net/2019/05/27/5cebfa0772f9841031.jpg">
+  
+  
+    <link rel="icon" href="https://i.loli.net/2019/05/27/5cebfa071b4a295715.jpg">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 7.0.0"></head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="logo">
+	<a href="/"><img lazy-src="https://i.loli.net/2019/05/27/5cebfa073a60a82008.jpg" class="js-avatar"/></a>
+</div>
+<div class="intrude-lessw">
+	<header id="header" class="inner">
+		<a class="profilepic">
+			
+			<img lazy-src="https://i.loli.net/2019/05/27/5cebfa077d8cd58987.gif" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/" class="underLine"></a></h1>
+		</hgroup>
+
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>导航</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives/">所有文章</a></li>
+				        
+							<li><a href="/tags/%E9%9A%8F%E7%AC%94/">随笔</a></li>
+				        
+							<li><a href="/tags/%E5%B0%8F%E7%8E%A9%E6%84%8F%E5%84%BF/">小玩意儿</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/nostarsnow/" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="http://t.qq.com/wuxinghongqi/" title="weibo">weibo</a>
+					        
+								<a class="mail" target="_blank" href="mailto:leizuiaili@vip.qq.com" title="mail">mail</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/%E5%B0%8F%E7%8E%A9%E6%84%8F%E5%84%BF/" style="font-size: 20px;">小玩意儿</a> <a href="/tags/%E9%9A%8F%E7%AC%94/" style="font-size: 10px;">随笔</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://tieba.baidu.com/f?kw=%C7%EB%C4%E3%D7%D4%D6%D8">百度贴吧</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">对世界你是或缺。对我。你是整个世界。</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide"></h1>
+  		<div class="logo">
+			<a href="/"><img lazy-src="https://i.loli.net/2019/05/27/5cebfa073a60a82008.jpg" class="js-avatar"/></a>
+		</div>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+			
+				<img lazy-src="https://i.loli.net/2019/05/27/5cebfa077d8cd58987.gif" class="js-avatar">
+			
+			</div>
+			<hgroup>
+			  <h1 class="header-author"></h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives/">所有文章</a></li>
+		        
+					<li><a href="/tags/%E9%9A%8F%E7%AC%94/">随笔</a></li>
+		        
+					<li><a href="/tags/%E5%B0%8F%E7%8E%A9%E6%84%8F%E5%84%BF/">小玩意儿</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/nostarsnow/" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="http://t.qq.com/wuxinghongqi/" title="weibo">weibo</a>
+			        
+						<a class="mail" target="_blank" href="mailto:leizuiaili@vip.qq.com" title="mail">mail</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-A-Lot-Bug-Page-of-Trello-Taco" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      在Trello&#39;s Taco那充满bug的页面上通过url参数显示你自己的名字详解
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%B0%8F%E7%8E%A9%E6%84%8F%E5%84%BF/" rel="tag">小玩意儿</a></li></ul>
+	</div>
+
+        
+
+        <div class="article-meta">
+          <a href="/2016/03/21/A-Lot-Bug-Page-of-Trello-Taco/" class="article-date">
+  	<time datetime="2016-03-21T15:30:03.000Z" itemprop="datePublished">2016-03-21</time>
+</a>
+        </div>
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在这个充斥着各种bug的链接上—<a href="https://taco-spolsky.github.io/" target="_blank" rel="noopener">taco-spolsky.github.io</a>。只通过url参数来实现点击按钮显示你自己的名字。<br>的详解。。。以上。（怎么话都说不通顺了）<br><a id="more"></a></p>
+<h2 id="背景介绍"><a href="#背景介绍" class="headerlink" title="背景介绍"></a>背景介绍</h2><p>这个有趣的玩意儿是我去年离职后找前端面试题的时候在知乎19841848上看到邹润阳提出的。链接就不放了。 直接说Trello的原文吧。 </p>
+<p>Trello是在某一年。我知道的是2014年国内大火的清单管理系统。2015年未知时间的时候。在一段招聘网页<a href="https://trello.com/jobs/front-end-developer" target="_blank" rel="noopener">Trello ECMAScript Developer(NYC) Job Opening</a>上有这么一段话。大致意思就是。 </p>
+<p>通过url传参的形式。让<a href="https://taco-spolsky.github.io/" target="_blank" rel="noopener">taco-spolsky.github.io</a>点击按钮显示的是你的名字 </p>
+<p>当时本以为一道很普通的题目。艰难的做完了之后长松了一口气。昨天发给了我之前的一个同事。一个努力想做前端（全栈）的.net工程师。想着这么有趣的东西。那就写下来吧。如果你有兴趣。可以自己先尝试一下。下面来跟着我一起。走进这个据说是Trello吉祥物制作的页面。（注：请不要产生任何这个页面写的真烂这种类似的想法）</p>
+<h2 id="页面分析"><a href="#页面分析" class="headerlink" title="页面分析"></a>页面分析</h2><h3 id="执行顺序"><a href="#执行顺序" class="headerlink" title="执行顺序"></a>执行顺序</h3><p>打开界面。很普通。只有一个按钮。点击一下。显示出了’Taco Spolsky’字样。我们要做的就是要把这个不知道什么意思的两个单词。换成任意我们指定的内容。 </p>
+<p>查看源代码。写的比较混乱。没关系。咱们按照这堆代码的思路先梳理一下代码结构。 </p>
+<pre><code class="javascript">① levelMap = { <span class="comment">/* code */</span> }; <span class="comment">//line 7-11</span>
+② getSetting = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{ <span class="comment">/* code */</span> }; <span class="comment">//line 13-26</span>
+③ validate = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{ <span class="comment">/* code */</span> }; <span class="comment">//line 28-40</span>
+④ checksum = <span class="string">'NOT APPROVED'</span>;  <span class="comment">//line 42</span>
+⑤ <span class="keyword">while</span>( <span class="comment">/* code */</span> ){ <span class="comment">/* code */</span> }; <span class="comment">//line 45-55</span>
+⑥ level = getSetting( <span class="comment">/* code */</span> );  <span class="comment">//line 57</span>
+⑦ <span class="keyword">if</span>( <span class="comment">/* code */</span> ){ <span class="comment">/* code */</span> }; <span class="comment">//line 58-60</span>
+⑧ CandidateChooser = { <span class="comment">/* code */</span> }; <span class="comment">//line 62-88</span>
+⑨ <span class="built_in">window</span>.addEventListener( <span class="comment">/* code */</span> ); <span class="comment">//line 90</span>
+</code></pre>
+<h3 id="点击事件"><a href="#点击事件" class="headerlink" title="点击事件"></a>点击事件</h3><p>既然是点击按钮触发事件来显示名字。那么我们先来看点击事件的⑨和⑧。</p>
+<pre><code class="javascript">CandidateChooser = {
+  name: <span class="string">"Taco Spolsky"</span>,
+  recommend: <span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>{
+      <span class="keyword">if</span> (e.target.id != <span class="string">'choose'</span>) {
+          <span class="keyword">return</span>;
+      }
+      random = <span class="built_in">Math</span>.random();
+      <span class="keyword">if</span> (random &lt; levelMap[level]) {
+          <span class="keyword">this</span>.name = <span class="string">"Taco Spolsky"</span>;
+      } <span class="keyword">else</span> <span class="keyword">if</span> (random &gt; levelMap[level]) {
+          <span class="keyword">this</span>.name = <span class="string">"Taco Spolsky"</span>;
+      } <span class="keyword">else</span> <span class="keyword">if</span> (random == levelMap[level]) {
+          <span class="keyword">this</span>.name = <span class="string">"Taco Spolsky"</span>;
+      }
+      <span class="keyword">if</span> (<span class="keyword">this</span>.name != <span class="string">"Taco Spolsky"</span>) {
+          <span class="keyword">if</span> (!validate(<span class="keyword">this</span>.name, checksum)) {
+              <span class="keyword">this</span>.name = <span class="string">"Taco Spolsky"</span>;
+          }
+      }
+      <span class="built_in">document</span>.getElementById(<span class="string">'candidate'</span>).textContent = <span class="keyword">this</span>.name;
+  }
+}
+<span class="built_in">window</span>.addEventListener(<span class="string">'click'</span>, CandidateChooser.recommend);
+</code></pre>
+<p>按钮’#choose’在window对象上绑定了代理事件<code>CandidateChooser.recommend</code>。根据this指向性原则。函数<code>CandidateChooser.recommend</code>内this皆指的是全局window对象。实际上等于最后输出的是<code>window.name</code>。（如果不能理解为什么this指的是window。我简单以我的理解说一下。函数的this指向的是调用该函数的对象。上面虽然看起来是通过<code>CandidateChooser</code>调用的。但因为这是处于事件绑定的过程中。this指向的就是被绑定对象的对象。即window。如果绑定在document上。则this指的就是document）。其中有很多判断条件来设置<code>this.name</code>值为默认字符串。因此我们需要将这些条件全部否决掉才可以避免<code>window.name</code>被设置为默认。 </p>
+<p>先来看random部分。 </p>
+<pre><code class="javascript">random = <span class="built_in">Math</span>.random();
+<span class="keyword">if</span> (random &lt; levelMap[level]) {
+    <span class="keyword">this</span>.name = <span class="string">"Taco Spolsky"</span>;
+} <span class="keyword">else</span> <span class="keyword">if</span> (random &gt; levelMap[level]) {
+    <span class="keyword">this</span>.name = <span class="string">"Taco Spolsky"</span>;
+} <span class="keyword">else</span> <span class="keyword">if</span> (random == levelMap[level]) {
+    <span class="keyword">this</span>.name = <span class="string">"Taco Spolsky"</span>;
+}
+</code></pre>
+<p>无论<code>random</code>大于等于或者小于<code>levelMap[level]</code>。结果都是不对的。这岂不是没办法了？不对。if语句在进行判断的时候存在很多隐形转换。<code>random</code>必然是数字。那<code>levelMap[level]</code>也会被转换为数字进行比较。那么只要<code>levelMap[level]</code>不能转成数字（会转为NaN）就可以了。不能转换成数字的类型有</p>
+<blockquote>
+<p>字符串：不以数字、+数字、-数字、.数字开头的字符串<br>数  组：长度大于1的数组、长度等于1且值的格式不能转换为数字的数组（比如<code>1 == [&quot;01&quot;]</code>结果为ture）<br>对  象：任意<br>函  数：只要不自执行即任意<br>undefined 或者 NaN</p>
+</blockquote>
+<p>levelMap[level]的值自然就是上面几种情况。这个我们待会儿再说。再看下面validate部分。</p>
+<pre><code class="javascript"><span class="keyword">if</span> (!validate(<span class="keyword">this</span>.name, checksum)) {
+    <span class="keyword">this</span>.name = <span class="string">"Taco Spolsky"</span>;
+}
+</code></pre>
+<p>可得if的条件括号内必须为假才行。那validate函数必须返回真。</p>
+<p>分析完之后。我们再回过头逐个分析。</p>
+<h3 id="levelMap-level-项"><a href="#levelMap-level-项" class="headerlink" title="levelMap[level]项"></a>levelMap[level]项</h3><p>levelMap是一个开始就被定义好的对象。 </p>
+<pre><code class="javascript">levelMap = {
+    <span class="string">'easy'</span>: <span class="number">1</span>,
+    <span class="string">'medium'</span>: <span class="number">.1</span>,
+    <span class="string">'hard'</span>: <span class="number">.001</span>
+}
+</code></pre>
+<p>并且没有再任何地方修改过。那重点就在level这个全局变量上。 </p>
+<p>根据①可知。首先level不能等于’easy/medium/hard’。level明显被赋值的地方是在第⑥步和第②步以及第⑦步： </p>
+<pre><code class="javascript">getSetting = <span class="function"><span class="keyword">function</span>(<span class="params">key, settings</span>) </span>{
+    settings = settings.split(<span class="string">"&amp;"</span>);
+    <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; settings.length; i++) {
+        setting = settings[i];
+        <span class="keyword">if</span> (setting.length &lt;= <span class="string">'level=medium'</span>.length) {
+            <span class="keyword">if</span> (setting.indexOf(key)) {
+                <span class="keyword">return</span> setting.substr(setting.indexOf(key) + key.length + <span class="number">1</span>);
+            }
+        }
+    }
+    <span class="keyword">return</span> <span class="string">'hard'</span>;
+}
+level = getSetting(<span class="string">'level'</span>, <span class="built_in">window</span>.location.search || <span class="string">'?level=hard'</span>);
+<span class="keyword">if</span> (!levelMap[level]) {
+    level = <span class="string">'medium'</span>;
+}
+</code></pre>
+<p>先看函数<code>getSetting</code>。参数<code>key</code>是固定的<code>level</code>。settings是<code>location.search</code>或者默认的<code>?level=hard</code>。来看看函数做了那些操作。 </p>
+<pre><code class="javascript">settings = settings.split(<span class="string">"&amp;"</span>); <span class="comment">//将settings以"&amp;"符号分割为数组。一般情况下为["?key=value","key=value"...]</span>
+<span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; settings.length; i++) {
+    setting = settings[i];
+    <span class="keyword">if</span> (setting.length &lt;= <span class="string">'level=medium'</span>.length) { <span class="comment">// 该字段长度小于等于字符串的长度。即小于等于12。</span>
+        <span class="keyword">if</span> (setting.indexOf(key)) { <span class="comment">//该字段中key。也就是"level"出现的位置转换为bool值。注意。这里不是setting是否包含key的意思。</span>
+            <span class="keyword">return</span> setting.substr(setting.indexOf(key) + key.length + <span class="number">1</span>); <span class="comment">//截取setting。从参数长度直到setting最后一位。</span>
+        }
+    }
+}
+<span class="keyword">return</span> <span class="string">'hard'</span>; <span class="comment">//如果settings分割出来的数组长度为0。则默认返回hard</span>
+</code></pre>
+<p>首先。函数参数<code>settings</code>被分割成的数组长度不能为0。当然也不可能为0。因为有默认值嘛。<br>其次。这个数组的字段中必须有一个字符串长度小于等于12。且不能以字符串’level’开头。这里在注意。’indexOf’如果找不到’key’。返回-1的话。是不会被转换为’false’的。<code>!!-1 === true</code>。<br>如果这不满足上面两个条件。那就会默认返回’hard’。OK。我们继续来看给<code>level</code>变量赋值之后的第⑦步。也是可能会改变变量’level’的最后一步。</p>
+<pre><code class="javascript"><span class="keyword">if</span> (!levelMap[level]) {
+    level = <span class="string">'medium'</span>;
+}
+</code></pre>
+<p>这。。。如果<code>level</code>不在<code>levelMap</code>对象之上。则会被修改为’medium’。可前面明明说了<code>level</code>值不能等于’easy/medium/hard’的呀。这不是无解了吗？ </p>
+<p>当然不是。关键词。原型继承。即使<code>levelMap</code>是通过对象字面量创建的。原型依然是继承于’Object’。我们可以在console里打印出来看一下。 </p>
+<p><img src="https://i.loli.net/2019/05/27/5cebfa0772f9841031.jpg" alt="levelMap原型"> </p>
+<p>皆为函数。符合我们关于点击事件内random比较条件的分析。因此我们要从Object中挑选一个来作为最后变量<code>level</code>的值。挑选哪个呢？我们再来看函数内循环的那一段。可以得知字符串长度必须是小于等于12。而且还得去除掉<code>key</code>的长度5。剩余的长度是7。而<code>Object</code>中只有’valueOf’符合。也就是说。在<code>location.href</code>被分割成的数组之中。其中有一项必须是五个随意字符+’valueOf’。既如此。<code>location.search</code>的格式例如’?key=valueOf’。如若不是数组的第一个参数。那在Ta之前的所有数组参数必须不能满足之前说的那两个条件。比如可以是’?123456789876&amp;12345valueOf’ </p>
+<p><code>levelMap[level]</code>项研究结束。我们再来看<code>validate</code>函数和<code>checksum</code>。</p>
+<h3 id="validate和checksum"><a href="#validate和checksum" class="headerlink" title="validate和checksum"></a>validate和checksum</h3><p>我们来分析第④、⑤、③步。第④步赋值略过。</p>
+<pre><code class="javascript"><span class="keyword">while</span> (location.hash.length &gt; <span class="number">1</span> &amp;&amp; !name) {
+    entries = location.hash.split(<span class="string">'|'</span>);
+    <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; entries.length; i++) {
+        parts = entries[i].split(<span class="string">'='</span>);
+        name = <span class="built_in">decodeURIComponent</span>(parts[<span class="number">0</span>]);
+        value = <span class="built_in">decodeURIComponent</span>(parts[<span class="number">1</span>]);
+        <span class="keyword">if</span> (name == <span class="string">'checksum'</span>) {
+            checksum = value;
+        }
+    }
+}
+validate = <span class="function"><span class="keyword">function</span>(<span class="params">name, checksum</span>) </span>{
+    <span class="keyword">var</span> string = name + <span class="string">"approved by Taco"</span>;
+    <span class="keyword">var</span> testsum = <span class="number">123</span>;
+    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; string.length; i++) {
+        testsum = testsum * <span class="number">13</span> + string.charCodeAt(i);
+        <span class="keyword">while</span> (testsum &gt; <span class="number">10000000</span>) {
+            testsum -= <span class="number">1000000</span>;
+        }
+    }
+    <span class="keyword">return</span> testsum == checksum;
+}
+</code></pre>
+<p>不具体分析了。忽然发现写的太长了。注意几点。先说’while’循环。 </p>
+<blockquote>
+<p>1、存在hash且name未定义(或定义为可转换为false的值)<br>2、当你只是刷新页面的时候。只要不更改<code>origin/pathname/search</code>。window.name是不会变的。调试的时候一定要注意。原理嘛。我翻遍了也没找到。倒是找到一堆说利用这个来跨域的。可能有点儿关系吧。<br>3、hash值是以’|’分割的。<br>4、被分割成的数组中有一个字段位于’=’前面的是’checksum’.后面的一个checksum的值。有一个字段位于’=’前面的值就是你要修改的你的名字。之后for循环结束就会跳出while循环。然后就再也没有机会修改<code>window.name</code>了 </p>
+</blockquote>
+<p><code>validate</code>函数需要说的细致一点儿。首先。由一开始在点击事件里的的判断可知。函数必须返回true才可以。</p>
+<pre><code class="javascript">validate = <span class="function"><span class="keyword">function</span>(<span class="params">name, checksum</span>) </span>{
+    <span class="keyword">var</span> string = name + <span class="string">"approved by Taco"</span>;
+    <span class="keyword">var</span> testsum = <span class="number">123</span>;
+    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; string.length; i++) {
+        testsum = testsum * <span class="number">13</span> + string.charCodeAt(i);
+        <span class="keyword">while</span> (testsum &gt; <span class="number">10000000</span>) {
+            testsum -= <span class="number">1000000</span>;
+        }
+    }
+    <span class="keyword">return</span> testsum == checksum;
+}
+</code></pre>
+<p>过程是将上一步获得值的<code>name</code>与’approved by Taco’拼接。通过一段算法。来得出一个数值。使这个数值等于通过上一步获得的<code>checksum</code>的值。其中的算法利用了’charCodeAt’就是每一位的Unicode编码来计算。我们不需要去接入具体的算法。我们只要把我们的名字给代入进去让已经写好的算法帮我们算出来即可。如下。比如说我的’name’是’nostar’</p>
+<pre><code class="javascript"><span class="keyword">var</span> string = <span class="string">"nostar"</span> + <span class="string">"approved by Taco"</span>;
+<span class="keyword">var</span> testsum = <span class="number">123</span>;
+<span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; string.length; i++) {
+    testsum = testsum * <span class="number">13</span> + string.charCodeAt(i);
+    <span class="keyword">while</span> (testsum &gt; <span class="number">10000000</span>) {
+        testsum -= <span class="number">1000000</span>;
+    }
+}
+<span class="built_in">console</span>.log(testsum) <span class="comment">// 9887521</span>
+</code></pre>
+<p>OK。可以得知。当我的<code>name</code>值为’nostar’的时候。<code>checksum</code>必须是<code>9887521</code>才可以。如果你要用自己的名字。则也需要自己代入这个算法算出来。我没有测试中文和特殊符号。不知道情况会如何。估计会报错吧。。。</p>
+<h3 id="综合上述分析"><a href="#综合上述分析" class="headerlink" title="综合上述分析"></a>综合上述分析</h3><p>假如我需要点击按钮显示我的名字为’nostar’。那么。。。</p>
+<p>1、 <code>location.search</code>必须存在。且被’&amp;’分割出的数组中有一项必须是小于等于12位且不能以’level’开头并且后7位必须是’valueOf’。按照最小程度模拟就是’?key=valueOf’ </p>
+<p>2、 <code>location.hash</code>必须存在。且被’|’分割出来的数组中。之前有一项必须是’checksum=9887521’。之后有一项必须是’nostar=…’或者直接就是’nostar’。按照最小程度模拟就是’#|checksum=9887521|nostar’ </p>
+<p>因此。<code>location.href</code>全写便是 </p>
+<pre><code class="javascript"><span class="string">"https://taco-spolsky.github.io/?key=valueOf#|checksum=9887521|nostar"</span>
+</code></pre>
+<p>测试一下。嗯。很正确。再刷新一下。咦？又不正确了。还是那个问题。注意不修改’origin/pathname/search’刷新的时候<code>window.name</code>不会变的。’while’循环也不会执行。因此加个断点在开始的时候清空<code>window.name</code>即可。这算是一个小坑。测试的小坑。 </p>
+<h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p>题目是很有意思的。比那些让你写这个函数、问那个方法要有趣的多。而且考察很多基础知识。也很容易让人混淆。不过嘛。道高一尺。佛高一丈。再遇到这种题目的时候。我教你一个方法。就是全部打上断点逐步调试。什么全局变量局部变量不清不楚了、变量被修改的顺序了、this的指向问题了就都可以很好的看出来了。 </p>
+<p>最后。我忽然又想起了也是去年同时期看到的阿里的一道面试题。 </p>
+<blockquote>
+<p>在不使用loop循环的情况下。输出一个[1,2,3,…,98,99,100]的数组。 </p>
+</blockquote>
+<p>嘛。嘛。嘛。轻轻地捧着你的脸。为你把眼泪擦干。这颗心永远属于你。告诉我不再孤单。。。</p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/04/05/Tag-cloud/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">←</strong>
+      <div class="article-nav-title">
+        
+          几乎完全随机的不能再随机显示的标签云
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/03/19/What-is-the-Significance-of-Javascript/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Javascript的意义何在？个人理解的js发展史</div>
+      <strong class="article-nav-caption">→</strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+
+
+
+
+  <div id="git-comment"></div>
+<link rel="stylesheet" href="/js/gitcomment/index.css"/>
+
+<script src="/js/gitcomment/index.js"></script>
+
+<script>
+var gitment = new Gitment({
+  id: 'Mon Mar 21 2016 23:30:03 GMT+0800', // 可选。默认为 location.href
+  owner: 'nostarsnow',
+  repo: 'nostarsnow.github.io',
+  oauth: {
+    client_id: 'c85b4116dd5568a953a2',
+    client_secret: '0bfbd427d69accdbece179a9a7e7fe818eeab88d',
+  },
+})
+gitment.render('git-comment')
+</script>
+
+
+
+
+  <div class="post-toc"></div>
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2023 nostar
+    	</div>
+      <div class="footer-right">
+      		
+      </div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+
+<script src="https://unpkg.com/requirejs@2.1.6/require.js"></script>
+
+
+<script src="https://www.unpkg.com/jquery@1.9.1/jquery.min.js"></script>
+
+
+<script src="/js/main.js"></script>
+
+
+<script src="https://s95.cnzz.com/z_stat.php?id=1257879728&web_id=1257879728.js"></script>
+
+
+
+<!--
+ -->
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="https://cdn.bootcss.com/mathjax/2.6.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>

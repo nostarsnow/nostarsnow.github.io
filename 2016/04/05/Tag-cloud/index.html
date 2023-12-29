@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>几乎完全随机的不能再随机显示的标签云 | nostar&#39;blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="公司最近在开发一个平台中。赫然出现了一个常见却又奇葩的设计交互细节。就是标签云。普通的标签云。飘浮3D什么的都还好。至少都做过也知道怎么做。可。UI交互说道。我们之前看过一个视频。就是让这些标签大小、颜色、位置随机。鼠标放上去有放大、离开有缩小效果就可以了。嗯。。。似乎很简单嘛。 在线预览：Demo  github">
+<meta property="og:type" content="article">
+<meta property="og:title" content="几乎完全随机的不能再随机显示的标签云">
+<meta property="og:url" content="http://nostarsnow.github.io/2016/04/05/Tag-cloud/index.html">
+<meta property="og:site_name" content="nostar&#39;blog">
+<meta property="og:description" content="公司最近在开发一个平台中。赫然出现了一个常见却又奇葩的设计交互细节。就是标签云。普通的标签云。飘浮3D什么的都还好。至少都做过也知道怎么做。可。UI交互说道。我们之前看过一个视频。就是让这些标签大小、颜色、位置随机。鼠标放上去有放大、离开有缩小效果就可以了。嗯。。。似乎很简单嘛。 在线预览：Demo  github">
+<meta property="og:locale">
+<meta property="og:image" content="https://i.loli.net/2019/05/27/5cebfa073e6cb83485.jpg">
+<meta property="article:published_time" content="2016-04-05T13:48:36.000Z">
+<meta property="article:modified_time" content="2019-05-27T14:57:50.000Z">
+<meta property="article:author" content="nostar">
+<meta property="article:tag" content="小玩意儿">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.loli.net/2019/05/27/5cebfa073e6cb83485.jpg">
+  
+  
+    <link rel="icon" href="https://i.loli.net/2019/05/27/5cebfa071b4a295715.jpg">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 7.0.0"></head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="logo">
+	<a href="/"><img lazy-src="https://i.loli.net/2019/05/27/5cebfa073a60a82008.jpg" class="js-avatar"/></a>
+</div>
+<div class="intrude-lessw">
+	<header id="header" class="inner">
+		<a class="profilepic">
+			
+			<img lazy-src="https://i.loli.net/2019/05/27/5cebfa077d8cd58987.gif" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/" class="underLine"></a></h1>
+		</hgroup>
+
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>导航</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives/">所有文章</a></li>
+				        
+							<li><a href="/tags/%E9%9A%8F%E7%AC%94/">随笔</a></li>
+				        
+							<li><a href="/tags/%E5%B0%8F%E7%8E%A9%E6%84%8F%E5%84%BF/">小玩意儿</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/nostarsnow/" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="http://t.qq.com/wuxinghongqi/" title="weibo">weibo</a>
+					        
+								<a class="mail" target="_blank" href="mailto:leizuiaili@vip.qq.com" title="mail">mail</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/%E5%B0%8F%E7%8E%A9%E6%84%8F%E5%84%BF/" style="font-size: 20px;">小玩意儿</a> <a href="/tags/%E9%9A%8F%E7%AC%94/" style="font-size: 10px;">随笔</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://tieba.baidu.com/f?kw=%C7%EB%C4%E3%D7%D4%D6%D8">百度贴吧</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">对世界你是或缺。对我。你是整个世界。</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide"></h1>
+  		<div class="logo">
+			<a href="/"><img lazy-src="https://i.loli.net/2019/05/27/5cebfa073a60a82008.jpg" class="js-avatar"/></a>
+		</div>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+			
+				<img lazy-src="https://i.loli.net/2019/05/27/5cebfa077d8cd58987.gif" class="js-avatar">
+			
+			</div>
+			<hgroup>
+			  <h1 class="header-author"></h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives/">所有文章</a></li>
+		        
+					<li><a href="/tags/%E9%9A%8F%E7%AC%94/">随笔</a></li>
+		        
+					<li><a href="/tags/%E5%B0%8F%E7%8E%A9%E6%84%8F%E5%84%BF/">小玩意儿</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/nostarsnow/" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="http://t.qq.com/wuxinghongqi/" title="weibo">weibo</a>
+			        
+						<a class="mail" target="_blank" href="mailto:leizuiaili@vip.qq.com" title="mail">mail</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-Tag-cloud" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      几乎完全随机的不能再随机显示的标签云
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%B0%8F%E7%8E%A9%E6%84%8F%E5%84%BF/" rel="tag">小玩意儿</a></li></ul>
+	</div>
+
+        
+
+        <div class="article-meta">
+          <a href="/2016/04/05/Tag-cloud/" class="article-date">
+  	<time datetime="2016-04-05T13:48:36.000Z" itemprop="datePublished">2016-04-05</time>
+</a>
+        </div>
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>公司最近在开发一个平台中。赫然出现了一个常见却又奇葩的设计交互细节。就是标签云。普通的标签云。飘浮3D什么的都还好。至少都做过也知道怎么做。可。UI交互说道。我们之前看过一个视频。就是让这些标签大小、颜色、位置随机。鼠标放上去有放大、离开有缩小效果就可以了。嗯。。。似乎很简单嘛。</p>
+<p><a href="https://nostarsnow.github.io/tag-cloud/">在线预览：Demo</a> </p>
+<p><a href="https://github.com/nostarsnow/tag-cloud/" target="_blank" rel="noopener">github</a> </p>
+<a id="more"></a>
+<h2 id="背景介绍"><a href="#背景介绍" class="headerlink" title="背景介绍"></a>背景介绍</h2><p>设计图如下所示</p>
+<p><img src="https://i.loli.net/2019/05/27/5cebfa073e6cb83485.jpg" alt="demo">  </p>
+<p>一个前端看到图之后直接切了一整张图放了上去。没错。就是切了上面一整张图。果断被经理、UI和后端训斥了一会儿。让我过去看看。听Ta们比划了半天。这不是我恍然醒悟。这是不是就是标签云呀？Ta们不确定。UI要求的是随机摆放、随机背景和鼠标滑入滑出放大的效果。后端要求的是可以一个循环把所有的标签给输出出来。经理要求的是实现UI和后端的要求。还要兼容IE7+。 </p>
+<p>前端同事听了颇有无奈。转头看向了我。我。。。于是我接下了。然后开始了。。。</p>
+<h2 id="忐忑的过程"><a href="#忐忑的过程" class="headerlink" title="忐忑的过程"></a>忐忑的过程</h2><h3 id="随机颜色"><a href="#随机颜色" class="headerlink" title="随机颜色"></a>随机颜色</h3><p>说起随机颜色。我就很容易想起来之前看到一直存在着的随机颜色获取代码。 </p>
+<pre><code class="javascript">
+<span class="string">'#'</span>+(<span class="string">'00000'</span>+(<span class="built_in">Math</span>.random()*<span class="number">0x1000000</span>&lt;&lt;<span class="number">0</span>).toString(<span class="number">16</span>)).slice(<span class="number">-6</span>); 
+
+</code></pre>
+<p>看着很高深。还涉及到了位操作符。可惜我不是很能看懂。看懂了也不是很会用。而且看设计图我还想要在设定范围内随机颜色。在这个基础上修改我也不会。只好采取最笨的方法。通过随机r、g、b的值来获取随机范围颜色。 </p>
+<p>常用web颜色格式有几种。 </p>
+<blockquote>
+<p>#012 (16位颜色简写。相当于#001122。分别对应rgb的每一位) </p>
+<p>#000000 (16位颜色全写)<br>rgb(a)(0,0,0) (rgb颜色)<br>hsl(a)(295, 65%, 69%) (hsl颜色)<br>……</p>
+</blockquote>
+<p>因为hsl使用不多。所以只支持了前三种。其实最关键的是hsl不太好用语言描述。后面说道颜色变淡加深的时候再说。<br>前三种格式也好区分。判断最大最小颜色值的格式。获取对应的rgb值。皆是0-255的十位数字。分别取最小r和最大r、最小g和最大g、最小b和最大b的随机值。重新组装成为新的rgb值。随机颜色完成。</p>
+<h3 id="随机位置和大小"><a href="#随机位置和大小" class="headerlink" title="随机位置和大小"></a>随机位置和大小</h3><p>这两个应该是相辅相成的。可是。要得到随机大小。我总得知道最大最小值吧。同时为了分布均匀。最小还好说。可以人为的通过感观调整。最大值呢？似乎牵扯到了数学问题。我的数学平平。只好采取一些自己能理解的方法。 </p>
+<p>假如说宽w高h的矩形。内部需要放置n个标签圆。就是n个边长相同皆为x的正方形。那么请问x怎么求得？ </p>
+<p>我开始尝试一些方法。比如w=1000,h=500,n=20</p>
+<p>1、根据面积求得w*h/n。得到每个正方形的最大面积是25000。开方获得最大边长整数m。之后w/m取整乘以h/m取整。看结果是否大于等于20。若小于20。则m=m-1。继续与w和h相除。直至乘积结果大于等于20为止。此时的m即为最大边长n。 </p>
+<pre><code class="javascript"><span class="keyword">var</span> x = (<span class="function"><span class="keyword">function</span>(<span class="params">w,h,n</span>)</span>{
+    <span class="keyword">var</span> m = ~~<span class="built_in">Math</span>.sqrt(w*h);
+    <span class="keyword">while</span>( ~~(w/m)*~~(h/m) &lt; <span class="number">20</span> ){
+        m--;
+    }
+    <span class="built_in">console</span>.log(m);
+    <span class="keyword">return</span> m;
+})(<span class="number">1000</span>,<span class="number">500</span>,<span class="number">20</span>);
+</code></pre>
+<p>2、根据公约数求得。先获取小于w的最大非质数。再获取小于h的最大非质数。然后求得w和h的最大公约数m。之后w/m取整乘以h/m取整。看结果是否大于等于20。若小于20。则再获取w和h的次级公约数。直至乘积结果大于等于20为止。此时的m即为最大边长n。 </p>
+<pre><code class="javascript"><span class="keyword">var</span> y = (<span class="function"><span class="keyword">function</span>(<span class="params">w,h,n</span>)</span>{
+    <span class="function"><span class="keyword">function</span> <span class="title">isPrime</span>(<span class="params">n</span>) </span>{ <span class="comment">//是否为质数</span>
+        <span class="keyword">if</span> (n &lt;= <span class="number">3</span>) {
+            <span class="keyword">return</span> n &gt; <span class="number">1</span>;
+        }
+        <span class="keyword">if</span> (n % <span class="number">2</span> == <span class="number">0</span> || n % <span class="number">3</span> == <span class="number">0</span>) {
+            <span class="keyword">return</span> <span class="literal">false</span>;
+        }
+
+        <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">5</span>; i * i &lt;= n; i += <span class="number">6</span>) {
+            <span class="keyword">if</span> (n % i == <span class="number">0</span> || n % (i + <span class="number">2</span>) == <span class="number">0</span>) {
+                <span class="keyword">return</span> <span class="literal">false</span>;
+            }
+        }
+        <span class="keyword">return</span> <span class="literal">true</span>;
+    }
+    <span class="function"><span class="keyword">function</span> <span class="title">maxPrime</span>(<span class="params">n</span>) </span>{ <span class="comment">//最大非质数</span>
+        <span class="keyword">var</span> gap = <span class="number">0</span>;
+        <span class="keyword">while</span> (isPrime(n)) {
+            n--;
+            gap--;
+        }
+        <span class="keyword">return</span> {
+            num: n,
+            gap: gap
+        }
+    }
+    <span class="function"><span class="keyword">function</span> <span class="title">maxDivisor</span>(<span class="params">m, n, correct</span>) </span>{ <span class="comment">//最大公约数</span>
+        <span class="keyword">var</span> u = +m,
+            v = +n,
+            t = n,
+            _u;
+        <span class="keyword">while</span> (v != <span class="number">0</span>) {
+            t = u % v;
+            u = v;
+            v = t;
+        }
+        <span class="keyword">if</span> (correct !== <span class="literal">undefined</span>) {
+            <span class="keyword">while</span> (correct != <span class="number">0</span>) {
+                <span class="keyword">var</span> arr = [
+                    <span class="built_in">Math</span>.sqrt(u),
+                    u / <span class="number">2</span>,
+                    u / <span class="number">3</span>,
+                    u / <span class="number">5</span>,
+                    u / <span class="number">7</span>
+                ];
+                u = <span class="built_in">Math</span>.max.apply(<span class="literal">null</span>, arr);
+                correct--;
+            }
+        }
+        <span class="keyword">return</span> u;
+    }
+    <span class="keyword">var</span> offset = <span class="number">0</span>, <span class="comment">//公约数修正值</span>
+        mw = maxPrime(w),
+        mh = maxPrime(h);
+    <span class="keyword">var</span>    m = maxDivisor(mw.num,mh.num,offset);
+    <span class="keyword">while</span> ( ~~(w/m)*~~(h/m) &lt; n ) {
+        m = maxDivisor(mw.num,mh.num,++offset);
+    }
+    <span class="built_in">console</span>.log(m);
+    <span class="keyword">return</span> m;
+})(<span class="number">1000</span>,<span class="number">500</span>,<span class="number">20</span>);
+</code></pre>
+<p>3、共y行z列。y:z ≈ h:w。y+z&gt;=n。然后根据千奇百怪的计算。求得最大y和z。这个只存在于我开始的想象。没有实践。</p>
+<p>4、什么mask2维卷积、x满足参数为兰格他的泊松分布公式：P（x=k）=[兰格他^k]*[EXP(-兰格他)/k的阶乘]。什么的。我也看不懂。就不尝试了。 </p>
+<p>不怕笑话。我一开始想到的是方法一根据面积求得边长。可之后不知道如何莫名奇妙的就用了方法二。使用公约数来求。最大公约数可以实现。但是除了性能方面还有些其他问题。 </p>
+<p>公约数层级不能保证。比如w=27和h=5的公约数。就只能是1。这样哪怕是只有一个正方形n。也会被分割成27*5份。为了解决这个问题。我丧心病狂的先把w和h转为整百数来保证层级尽可能的多。虽然应该是2的N次方才是层级最多的。减掉的部分变为边距。虽然可以解决问题。但。始终不是通用之道。 </p>
+<p>最后还是修改成为了方法一。方法一中减去的数值依然变为上左边距。OK。完成。</p>
+<h3 id="绘制辅助正方形"><a href="#绘制辅助正方形" class="headerlink" title="绘制辅助正方形"></a>绘制辅助正方形</h3><p>既然得到了最大边长。那就可以直接使用了。不过使用之前。先使用上一步中获得的最大边长和边距来绘制一堆的正方形以此方便调试。横竖输出的时候让我想起了以前做拼图的感觉。做到这里。我忽然想起了。样式的问题。。。</p>
+<h3 id="样式"><a href="#样式" class="headerlink" title="样式"></a>样式</h3><p>一般的插件引入js和css两个文件。说实话其实挺烦的。很早以前用angular的时候。ng-show和ng-hide的实现让我很意外。一看代码。原来是head上添加了一些样式。这个方法吼呀。很吼呀。虽然可能因为优先级的问题不好覆盖。但是呢。管Ta呢。。。我也要这样。把通用的样式写在js里然后放到head上。。。浏览器前缀可以直接获取写上去了。使用了<code>window.getComputedStyle</code></p>
+<h3 id="随机位置和大小-1"><a href="#随机位置和大小-1" class="headerlink" title="随机位置和大小"></a>随机位置和大小</h3><p>因为有了辅助正方形的边长和位置。这一项就简单的多了。这些绘制的所有辅助正方形。每一个内部都可能会放置一个标签正方形。标签正方形最大宽度就是此辅助正方形的宽度。位置则在辅助正方形内随机。同时为了避免太贴合。不要随便的100%就好。如果在参数里有设置最大最小宽度的话。在这里判断即可。 </p>
+<h3 id="标签背景色和文字颜色"><a href="#标签背景色和文字颜色" class="headerlink" title="标签背景色和文字颜色"></a>标签背景色和文字颜色</h3><p>若非为参数内的定义的颜色。则背景色取随机颜色。文字颜色就是255-r、255-g、255-b取背景色的反色。</p>
+<h3 id="边框颜色和文字大小"><a href="#边框颜色和文字大小" class="headerlink" title="边框颜色和文字大小"></a>边框颜色和文字大小</h3><p>这些比较细节。再看设计图。边框颜色很显眼。而且和背景色有关联。似乎是背景色变深还是变淡的？rgb颜色变淡变深的太麻烦了。不是太麻烦。是我根本就不知道咋写。还是走简单做法吧。先把rgb转为hsl。然后降低饱和度s之后再转换回rgb。绕一圈挺麻烦。可除此之外。我也没了别的办法。 </p>
+<p>文字大小。因为标签有大小。为了整体看起来均匀。自然文字也有大小。文字大小实现的不好。就不多说了。</p>
+<h3 id="鼠标滑入事件"><a href="#鼠标滑入事件" class="headerlink" title="鼠标滑入事件"></a>鼠标滑入事件</h3><p>为了实现鼠标滑入放大。鼠标离开缩小。使用css3自然是最简单最方便性能也最好的方式了。可是。。。一方面还有兼容低版本ie。一方面在box边缘的那些标签放大了会溢出box。自然也不是想要的结果。思来想去。还是用jQuery的动画吧。因为要模拟中心点放大。类似于<code>transform-origin:center center</code>的效果。标签的宽度高度都会变大。位置的左边距和上边距也需要随之改变。还好只需要简单的计算。动画可以借助使用jQuery.fn.animate来实现。挺好。挺好。 </p>
+<p>放大。不可避免的就会遮住其他标签。如果该标签放大。其他标签缩小的话。性能影响太甚。使用js实现透明度降低动画依然性能堪忧。思来想去。还是用css3动画实现吧。鼠标滑入标签。标签放大、边框长度增加。文字大小增加、文字行高增加、其他标签透明度降低等。也就这样完成了。 </p>
+<p>最后还剩下什么？对。动画。标签出现的动画。 </p>
+<h3 id="标签出现动画"><a href="#标签出现动画" class="headerlink" title="标签出现动画"></a>标签出现动画</h3><p>顺手写了三个。皆需要使用js完成动画。看看timeline还是很那啥的。咳咳咳。 </p>
+<blockquote>
+<p>逐个从小变大出现。同鼠标滑入事件类似。模拟中心点放大的效果。<br>像东方一堆boss的非符一般。从box中心由小变大向四面八方射出。同上。<br>所有的标签同一动画。因为太不咋的。就当没有吧。 </p>
+</blockquote>
+<h2 id="终于结束了"><a href="#终于结束了" class="headerlink" title="终于结束了"></a>终于结束了</h2><p>长吁一口气。做完之后发现其实也没有一开始想象的那么困难和复杂。却也不知不觉用掉了一天+的时间。现在可是正处于赶项目的阶段呀。其他同事刷页面已经超过我一二十张了。大部分是列表和详情页。作为刚到公司不到一个月的新人忽然压力很大。公司不会统计代码量吧？我讪讪的想着。回过头来看看花费这么多时间做这个。通用也不通用。炫酷也不炫酷。美妙也不美妙。只是略微实现了需求罢了。可那我干嘛不事先在css中写好50个标签的大小不一完全随机的样式。然后再随机让标签获得其中之一样式呢？既可以很快实现。又不耽误刷页面。唉。。。 </p>
+<p>也不知道值得不值得。实现一个功能总是想把功能完善的多一点儿。可做着做着一些事先想好的功能又因为各种各样的原因而搁浅。到最后想想以后可能一辈子都用不到。图什么呢？ </p>
+<p>我不知道。初听到这个需求的迷惑和完成之后心中的舒畅。应该就是意义所在了。 </p>
+<p>啧啧啧。在人多的时候最沉默。笑容也寂寞。。。</p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/10/10/How-It-Feels-To-Learn-Javascript-in-2016/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">←</strong>
+      <div class="article-nav-title">
+        
+          在 2016 年学习 JavaScript 是一种什么样的体验？
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/03/21/A-Lot-Bug-Page-of-Trello-Taco/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">在Trello&#39;s Taco那充满bug的页面上通过url参数显示你自己的名字详解</div>
+      <strong class="article-nav-caption">→</strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+
+
+
+
+  <div id="git-comment"></div>
+<link rel="stylesheet" href="/js/gitcomment/index.css"/>
+
+<script src="/js/gitcomment/index.js"></script>
+
+<script>
+var gitment = new Gitment({
+  id: 'Tue Apr 05 2016 21:48:36 GMT+0800', // 可选。默认为 location.href
+  owner: 'nostarsnow',
+  repo: 'nostarsnow.github.io',
+  oauth: {
+    client_id: 'c85b4116dd5568a953a2',
+    client_secret: '0bfbd427d69accdbece179a9a7e7fe818eeab88d',
+  },
+})
+gitment.render('git-comment')
+</script>
+
+
+
+
+  <div class="post-toc"></div>
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2023 nostar
+    	</div>
+      <div class="footer-right">
+      		
+      </div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+
+<script src="https://unpkg.com/requirejs@2.1.6/require.js"></script>
+
+
+<script src="https://www.unpkg.com/jquery@1.9.1/jquery.min.js"></script>
+
+
+<script src="/js/main.js"></script>
+
+
+<script src="https://s95.cnzz.com/z_stat.php?id=1257879728&web_id=1257879728.js"></script>
+
+
+
+<!--
+ -->
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="https://cdn.bootcss.com/mathjax/2.6.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>

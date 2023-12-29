@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>Javascript的意义何在？个人理解的js发展史 | nostar&#39;blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="某人:”我没懂js的意义。如果去找前端工作，会html css jq. Bs 能写能抄，老板要求页面能做出来，js意义何在还有angelarjs什么的好多内容？”  凌晨在ku岛闲逛。看到这个的问题。一时间感慨万千。回想起自己作为小小前端的的工作心情。准备回复一下。一写。却写了两个多小时。那我就记录下来吧。个人理解的javascript发展史。这篇内容很长。很长。很长。。。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Javascript的意义何在？个人理解的js发展史">
+<meta property="og:url" content="http://nostarsnow.github.io/2016/03/19/What-is-the-Significance-of-Javascript/index.html">
+<meta property="og:site_name" content="nostar&#39;blog">
+<meta property="og:description" content="某人:”我没懂js的意义。如果去找前端工作，会html css jq. Bs 能写能抄，老板要求页面能做出来，js意义何在还有angelarjs什么的好多内容？”  凌晨在ku岛闲逛。看到这个的问题。一时间感慨万千。回想起自己作为小小前端的的工作心情。准备回复一下。一写。却写了两个多小时。那我就记录下来吧。个人理解的javascript发展史。这篇内容很长。很长。很长。。。">
+<meta property="og:locale">
+<meta property="article:published_time" content="2016-03-19T15:30:03.000Z">
+<meta property="article:modified_time" content="2016-03-24T08:40:02.000Z">
+<meta property="article:author" content="nostar">
+<meta property="article:tag" content="随笔">
+<meta name="twitter:card" content="summary">
+  
+  
+    <link rel="icon" href="https://i.loli.net/2019/05/27/5cebfa071b4a295715.jpg">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 7.0.0"></head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="logo">
+	<a href="/"><img lazy-src="https://i.loli.net/2019/05/27/5cebfa073a60a82008.jpg" class="js-avatar"/></a>
+</div>
+<div class="intrude-lessw">
+	<header id="header" class="inner">
+		<a class="profilepic">
+			
+			<img lazy-src="https://i.loli.net/2019/05/27/5cebfa077d8cd58987.gif" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/" class="underLine"></a></h1>
+		</hgroup>
+
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>导航</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives/">所有文章</a></li>
+				        
+							<li><a href="/tags/%E9%9A%8F%E7%AC%94/">随笔</a></li>
+				        
+							<li><a href="/tags/%E5%B0%8F%E7%8E%A9%E6%84%8F%E5%84%BF/">小玩意儿</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/nostarsnow/" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="http://t.qq.com/wuxinghongqi/" title="weibo">weibo</a>
+					        
+								<a class="mail" target="_blank" href="mailto:leizuiaili@vip.qq.com" title="mail">mail</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/%E5%B0%8F%E7%8E%A9%E6%84%8F%E5%84%BF/" style="font-size: 20px;">小玩意儿</a> <a href="/tags/%E9%9A%8F%E7%AC%94/" style="font-size: 10px;">随笔</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://tieba.baidu.com/f?kw=%C7%EB%C4%E3%D7%D4%D6%D8">百度贴吧</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">对世界你是或缺。对我。你是整个世界。</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide"></h1>
+  		<div class="logo">
+			<a href="/"><img lazy-src="https://i.loli.net/2019/05/27/5cebfa073a60a82008.jpg" class="js-avatar"/></a>
+		</div>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+			
+				<img lazy-src="https://i.loli.net/2019/05/27/5cebfa077d8cd58987.gif" class="js-avatar">
+			
+			</div>
+			<hgroup>
+			  <h1 class="header-author"></h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives/">所有文章</a></li>
+		        
+					<li><a href="/tags/%E9%9A%8F%E7%AC%94/">随笔</a></li>
+		        
+					<li><a href="/tags/%E5%B0%8F%E7%8E%A9%E6%84%8F%E5%84%BF/">小玩意儿</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/nostarsnow/" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="http://t.qq.com/wuxinghongqi/" title="weibo">weibo</a>
+			        
+						<a class="mail" target="_blank" href="mailto:leizuiaili@vip.qq.com" title="mail">mail</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-What-is-the-Significance-of-Javascript" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Javascript的意义何在？个人理解的js发展史
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E9%9A%8F%E7%AC%94/" rel="tag">随笔</a></li></ul>
+	</div>
+
+        
+
+        <div class="article-meta">
+          <a href="/2016/03/19/What-is-the-Significance-of-Javascript/" class="article-date">
+  	<time datetime="2016-03-19T15:30:03.000Z" itemprop="datePublished">2016-03-19</time>
+</a>
+        </div>
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>某人:”我没懂js的意义。如果去找前端工作，会html css jq. Bs 能写能抄，老板要求页面能做出来，js意义何在还有angelarjs什么的好多内容？”</p>
+</blockquote>
+<p>凌晨在ku岛闲逛。看到这个的问题。一时间感慨万千。回想起自己作为小小前端的的工作心情。准备回复一下。一写。却写了两个多小时。那我就记录下来吧。个人理解的javascript发展史。这篇内容很长。很长。很长。。。<br><a id="more"></a></p>
+<h2 id="有言在先"><a href="#有言在先" class="headerlink" title="有言在先"></a>有言在先</h2><p>我已经很老了。老的都已经忘记了自己的名字。我每天坐在街口看着来来往往的人们。我不认识Ta们。Ta们却都认识我。我想从Ta们口中得知我的名姓。可惜。Ta们只会称呼我为。前端工程师。。。 </p>
+<p>很惊讶现在居然还有人有这种疑惑。那就从我所了解到的js和前端历史讲起吧。不细讲。我也不百度google粘贴。不保证完全正确。 </p>
+<h2 id="与众不同的发展史"><a href="#与众不同的发展史" class="headerlink" title="与众不同的发展史"></a>与众不同的发展史</h2><h3 id="黑历史"><a href="#黑历史" class="headerlink" title="黑历史"></a>黑历史</h3><p>在上个世纪。互联网从军工政用转为商用民用。人们发现了互联网的奇妙之处。而互联网重要几乎可以说唯一的载体。浏览器。也成了各大软件厂商争夺的市场。为了抢夺资源。各大厂商各尽其能。在浏览器的功能上不断翻陈出新。九十年代初期的浏览器。已经可以显示文字图片甚至包括一些简单的文字颜色大小了。而与刚出现的浏览器端（后称前端）不同。后端语言和数据库语言已经发展了许多年。因此很容易的把前端后端打通了。互联网的内容也越来越精彩丰富。 </p>
+<p>但是。人们慢慢的发现一个问题。在网速10KB20KB左右的拨号年代。把一些检验用户输入的操作放在服务器端实在是太慢了。一来一回等一年。针对这个问题。浏览器厂商尝试着各种方法解决。网景公司。netscape公司。在推出新一版本浏览器之前。由其一员工Javascript之父什么什么的。花费了十天左右利用C++还是C还是什么来着开发了一套浏览器上使用的脚本语言来完成数据校验、提示等功能。当时的网景公司并不如现今的地位。为了扩大名声。决定搭上当时算得上新新事物却如日中天的java顺风车。于是起名为javascript。 </p>
+<p>这一语言的发布震惊了整个浏览器圈。却并没有让人感到意外。随后。全球最大的软件公司微软。在其发布的IE浏览器中也嵌入了自己开发的脚本语言。其他浏览器厂商纷纷跟进。一时间各种混乱。一段实现同一功能的前端脚本代码必须配置多份才能在不同的浏览器中运行。网景公司看到这个乱象。一不做二不休。把其javascript源码交付给了W3C万维网联盟机构。之后该机构单独分出小组成员来完善和统一前端脚本规范。后称ECMA机构。 </p>
+<p>ECMA初期推行并不太顺利。最大的阻挠就是微软。虽然微软也支持ECMA标准。可并没有把自己研发的脚本语言从浏览器中剔除掉。其他厂商也是看这两位大神的脸色过活。 </p>
+<p>直到。ECMA标准3.0问世。大概是在新世纪的前一年。完善了许多之前不合理的地方。而微软的IE浏览器市场份额也因为各种各样的原因开始下滑。众多浏览器厂商开始完全跟进ECMA。微软IE浏览器的衰落拉开了序幕。 </p>
+<p>ECMA尽管是javascript的唯一标准。却不是不可替代的。后期许多公司包括微软推出了很多浏览器脚本语言。如CoffeeScript、Dart、Typescript等等。可最后无一例外的都需要编译成javascript来运行。无可置疑。javascript成为了前端的唯一脚本语言独裁者。</p>
+<h3 id="ECMA3"><a href="#ECMA3" class="headerlink" title="ECMA3"></a>ECMA3</h3><p>ECMA3.0问世后。虽然对于前端领域来说是重大的一步。但在众多其他语言精英的眼中。仍然是一门玩具语言。ECMA机构意识到了这个情况。马上开始着手ECMA4.0的预案。准备吸纳各种其他语言的优点。把javascript中很多令人诟病的缺陷填补掉。不料因为改动太大。很多API都需要推翻重来。遭到了大部分浏览器厂商和互联网话语权较重之人的抵制。ECMA4.0草草收场。不过ECMA机构不忿。马上倔强的又推出了ECMA3.1标准。以示抗议和来表决心。 </p>
+<h3 id="AJAX"><a href="#AJAX" class="headerlink" title="AJAX"></a>AJAX</h3><p>新世纪初的ECMA4.0之争将落未落幕之时。微软outlook web版和google mail web版等纷纷通过使用XMLHttpRequest技术（后称ajax）震惊了整个前端领域。随后广为使用的google map也使用ajax完成重构。人们享受到了和以前等白屏等一年之外的舒爽体验。 </p>
+<p>与此同时。虽然ECMA已经进化为唯一的标准。但是各个浏览器厂商因为早期未有标准时期的一些努力也不愿丢弃。纷纷的根据自己的特点嵌入到浏览器中。以微软的IE为典型。与ECMA标准有说多不多说少也不少的兼容性冲突。工程师们苦不堪言。 </p>
+<p>那时候的前端页面仍然大部分是由后端人员完成。Ta们对这门极度不严谨的语言充满了别扭。在页面上一个个table排版布局已经让Ta们焦头烂额。各种javascript兼容报错更是费心劳神。一个个加班到深夜心中默念着”God Damnit”。希望上帝来救赎Ta们。也许真的存在上帝。也许这种虔诚感动了上帝。前端历史上的最重要的功臣。js库jQuery登场。</p>
+<h3 id="jQuery"><a href="#jQuery" class="headerlink" title="jQuery"></a>jQuery</h3><p>初期的jQuery代码较之现在十分混乱。但是却解决了当时程序员们的燃眉之急切肤之痛。jQuery除了使用程序员们喜闻乐见的也是javascript语言中唯二特殊符号之一的$符。也很快齐头并进的封装好了ajax模块。程序员们使用着jQuery配合当时另一个增强javascript功能的prototype库。突出一个舒适。而其中的一部分人。也开始从google和微软的公司模式中。体会到了专业做前端的恐怖。那时候的前端。已经渐成规模。随着html4和4.1的推广。div+css逐渐替代了table布局。前端开始终日埋头于切页面、组页面、调页面、修页面的永无止境的任务。 </p>
+<p>javascript虽然不入那些专业程序员之眼。却也在这些被Ta们称之为页面仔、美工的家伙们心中算得上一门高深的编程语言。因此。大部分javascript代码仍然是由后端人员完成。 </p>
+<p>人呢。长期使用一样东西。会出现很大的腻烦心理。更何况是能偷懒就绝不多动的程序员。慢慢的人们发现使用ajax好是好。但是问题也有不少。比如每次都要重新整合数据插入html太烦了。jQuery的功能被压榨的已经快没有了。前端领域的佼佼者们又把目光伸向了在其他语言中璀璨发光在前端却捉襟见肘的框架。MVC。 </p>
+<p>又一前端历史上革命性的一位。backbone登场。 </p>
+<h3 id="Backbone"><a href="#Backbone" class="headerlink" title="Backbone"></a>Backbone</h3><p>即使一些大神级别的人物已经开始厌烦jQuery。但浏览器之间的兼容性和jQuery的普及性仍然不容小觑。因此backbone作为一个MVC框架。也强制依赖于jQuery和另一增强型js库。underscore。backbone大概是最豪华的mvc框架了。左手是使用javascript唯二特殊符号之一的$jQuery。右手是使用javascript唯二特殊符号之一的_underscore。左拥右抱。好不快活。！ </p>
+<h3 id="Nodejs"><a href="#Nodejs" class="headerlink" title="Nodejs"></a>Nodejs</h3><p>快活的不只是backbone。nodejs。搭乘着googleV8引擎列车。气势磅礴呼啸而来的刷新了整个行业对js的看法。因其多线程、易配置、效率高、并行回调等一堆特点。迅速的在前端界乃至web界甚至程序界蔓延开来。commonjs、amd、promise等。也从小众规范走入了大众视野。模块管理、按需加载。前端又多出了许多新命题。requirejs走入大众视野。多出来的命题也不单是模块化标准。包括前后端分离。前端向后端夺权了。因为nodejs的出现。以前刀耕火种敲代码。埋头苦干写页面的痛感也让一些大神坐不住的开发了前端构建工具。主张前端自动化。喝着小酒哼着歌。拿着大顶开着车。也能轻松的完成项目任务。过去是后端转前端。至此开始出现了大批量的前端转后端或服务端或数据库端甚至全栈的人才。国内外nodejs相关从业者一时风头无两。逍遥自在。 </p>
+<p>Ta们快活。自然有人就不舒服。虽然nodejs因为水平或者思想的原因。暂时无法超越。可backbone就不一样了。即使引领了前端mvc时代一段时间。但由于其理念高度远高于实际程度。从获取、更新、绑定、插入等完全需要手动来操作。众程序员的怨念也是日益增加。期间大家一直在尝试各种方案可以替代掉backbone。赶跑这个出场就带两秘书的现充。</p>
+<p>忽而。沉寂了许久的ECMA又跳了出来。发布了ECMA标准5.0。与ECMA5.0前后相差不久的HTML5、CSS3也挤了过来。一时间又热闹非凡。 </p>
+<h3 id="ECMA5"><a href="#ECMA5" class="headerlink" title="ECMA5"></a>ECMA5</h3><p>ECMA5和ECMA3.1语法上差别不是很大。却完善增加很多javascript功能。使得像prototype和underscore这样的增强库地位下降许多。也使得javascript日益规范起来。bootstrap紧跟着这趟列车。走进了人们的视线。js兼容。css兼容的问题。似乎就这样慢慢的变得不是那么头疼和重要了。新的标准预示着旧的凋零。过去jQuery中单sizzle选择器为了兼容就多达3000+的代码似乎也昨日黄花。虽然jQuery社区依旧兴盛。市场依旧繁华。却阻挡不住前端领域大神的步伐。 </p>
+<p>jQuery老了。哪怕Ta紧接着推出了2.0版本。也挽留不住那些一意高飞的心。</p>
+<h3 id="Angular"><a href="#Angular" class="headerlink" title="Angular"></a>Angular</h3><p>angular。终结backbone和jQuery的先行者。不止宣称着backbone的mvc并不适合前端。更是号召大家jQuery free。作为由主java程序员开发出来的前端框架。在java工程师多如狗的web领域掀起了巨大的革命。革命。革谁的命。backbone和jQuery的命。程序员们写下了一个个ng-app。体验着angular不同以往那些库和框架的韵味。清新扑鼻。沁人心脾。在被google收购后更是一时间席卷了整个前端界。 </p>
+<p>然而有趣的是。号称jQuery free的伟大如angualr。在被翻出源码的时候。内部的jq字样是那么的醒目。jqlite。angualr内部类jQuery操作dom的功能组件。在无情的嘲讽着使用angualr却拒绝使用jQuery的人们。<br>angualr确实是强大的。jQuery虽然日暮西山。却依然坚挺。但angualr和jQuery。一个框架一个库。在html5为了完善过去flash带来的各种问题而新增的audio、video、canvas、webgl等技术面前。却又显得单薄一点儿了。</p>
+<h3 id="Canvas"><a href="#Canvas" class="headerlink" title="Canvas"></a>Canvas</h3><p>canvas。如同其在网页中撕开了自己单独的一块领域一样。在前端界配合着css3也掀起了一场革命风暴。革谁的命？flash。过去网页动画十分微弱。即使是jQuery增加animate模块使用js递归完成动画也因为性能和功能问题而饱受争议。flash仍然是web游戏和web炫酷动画的唯一之选。甚至为了追求极致。很多网站全站使用flash来完成。更别提红极一时到现在也没有消停的网页在线游戏。 </p>
+<p>可是。炫酷的背后。难以掩盖flash那疯狂飙升的内存cpu和糟糕漏洞以及不胜其烦的更新弹窗。移动时代的到来、苹果公司的兴盛、HTML5的推行、乔布斯在iPhone 4发布会上对flash宣判了死刑。其他移动软硬公司马首是瞻。拒绝直接支持flash。似乎成了手机浏览器厂商的默认标准。flash没落。自然要有技术来继承。 </p>
+<p>canvas。为人们描绘出了一幅幅美丽的画卷。众多flash游戏开发公司团队也纷纷倒戈。还有native手机程序员也插进一脚。利用Ta们之前使用as和java等语言开发游戏的经验。制作出了众多把canvas api抽象封装的js游戏框架。createjs、egret、cocos2d、qici等。硬生生的从前端领域中开辟了一块自己的领域。但终究因为浏览器和canvas性能限制。高不成低不就。坚强的存在着却无法形成主流。渐渐成了前端领域的半附属品。会可加分。不会也无可厚非。人们在意的。还是那些框架。 </p>
+<h3 id="Web-Components"><a href="#Web-Components" class="headerlink" title="Web Components"></a>Web Components</h3><p>淫人妻女者人恒淫之。angualr肆虐了不到一年时间。就被挑出了各种毛病。历史开始重演。大神们又开始制作自己的框架。但就像angular淘汰backbone却有backbone的缩影甚至有jQuery的后代一般。其他框架不说模仿。却大抵都借鉴了backbone和angualr的模式。例如vue、avalong、ember、extjs、dojo等。说起extjs。这位也是老大哥了。当年和jQuery选择的不同的道路。jQuery主打是库。extjs和dojo主打的却是框架。但当时Ta们的框架与backbone或angualr概念不同。市场不错却没有带来革命性的突破。如今也是在特定场合使用。根据各种流行框架来完善着自身。闷声发大财。 </p>
+<p>时间永是流驶。前端依旧不平。ECMA5推出不久。ECMA6和ECMA7已经开始推向日程。完全无视多年因为javascript不严谨而诱发的百花齐放。ECMA还是决定挥刀制定更严苛的标准。web components组件化、shadow dom css组件化似乎已经在现在被决定好了成为未来。转身一看。哟。angualr在未来就要凋谢了呀！angualr开始慌了。 </p>
+<p>先是google团队开始研发angualr2.0。对外宣传将完全重做为了支持未来的组件化。再是某个国内404访问不到的网站仗着自己高超的技术和澎湃的人气。自主研发并开源了一套新的框架。reactjs。一脚把angular给踢出了超一线框架之列。 </p>
+<h3 id="Reactjs"><a href="#Reactjs" class="headerlink" title="Reactjs"></a>Reactjs</h3><p>facebook的react团队当然并无此意。react初期只是作为view层来尝试和解决组件化以及dom操作而出现的。宣传特点是快。virtualDom让人眼前一亮。甚至为了更快还想要使用react-canvas。简直是丧心病狂。可随着flux架构和基于flux架构思想的各种*ux框架的出现。完完全全的把reactjs推向了神坛。angular1在被主创团队概念性的抛弃之后。又被reactjs携flux给比的几乎渣都不剩。google的主要产品没有用angular。facebook的重要产品却用了react。真是让人唏嘘。可是。。。事实真是如此吗？当然不是。 </p>
+<p>首先。angular团队并没有完全放弃angular1。主要产品不用是因为google并不是angular的第一生产者。Ta们吸取了reactjs的virtualDom思想。更新了angular1新的版本。向外界宣示着会继续支持angular1。再者。reactjs也没有一统江湖。之前的那一堆mv*框架也积极的吸纳了这种思想。把virtualDom算法并入了框架之中。提高了对dom操作的性能。reactjs虽然仍是门庭若市。却也不足以平定天下。直到。react native发布。</p>
+<h3 id="Native"><a href="#Native" class="headerlink" title="Native"></a>Native</h3><p>react native是利用reactjs来开发手机native应用的框架。算框架吗？算吧。而且出于前端工程师人手mac、iphone的原则。率先发布了ios版。Write once, run anywhere。一份代码。多处运行。不禁让人想起了当年jQuery的宣言。write less。do more。少量代码。功能强大。reactjs并不依赖jQuery。内部也没有明显借鉴jQuery的实现方法。随着移动端和html5标准的推行以及zepto的完善。jQuery似乎越来越淡出了我们的视线。或许哪一天。jQuery作为dom库不再更新。我们也不需要再引入。但我也会为Ta保留着$符号。如果说移动平台加速了前端的发展。babel促进了ECMA标准的推进。那jQuery。就是ECMA3时代javascript开发者增长迅速的重要原因。 </p>
+<p>jQuery如此功不可没。但历史上也不算没有黑点。jQuery ui就不多说了。jQuery mobile。就算黑点。react native并不是第一个用js来写native的框架。其他比如inoic。配合phonegap加上angular开发hybrid应用也是盛行一时。效果可圈可点性能却无法忍受。而jQuery mobile虽然最初并不是为native设计。却也有那么层意思。性能比之前面那个还不如。react native会带来奇迹吗？谁知道呢。作为sony信仰者。对于react native for android晚出生那么久表示极其愤慨。可。又有什么用呢？自己能做的。只有追随别人的脚步。不被落下。已是心满意足。 </p>
+<h3 id="ECMA6"><a href="#ECMA6" class="headerlink" title="ECMA6"></a>ECMA6</h3><p>大概ECMA机构也是这么想的吧。不愿意被各种语言、各种前端库框架给撇下。ECMA6。也就是ECMA2015。也紧锣密鼓的推出了。初看之下。似乎完全偏离了ECMA3时代的基准。据说是抄袭。不。借鉴了ruby等现代语言的精华。皱皱眉。html5市场上的浏览器到现在支持程度都不标准统一呢。ECMA6恐怕得很久之后才能用得到了。我粗鄙的想着。可事实证明我也只能粗鄙的想想。node的存在、babel的跟进。让生产和生活中。处处都可以感受ECMA6的影子了。为什么说生活中呢？在许多javascript论坛上的帖子中。许多人回答问题都已经开始使用ECMA6。而reactjs。也证实了在node环境中、ECMA6的标准下。开发更加舒适。这么一看。似乎ECMA5也要过时了？ </p>
+<h2 id="国内库-框架-构建工具"><a href="#国内库-框架-构建工具" class="headerlink" title="国内库/框架/构建工具"></a>国内库/框架/构建工具</h2><p>angular1虽然市场依然广阔。但还是架不住日渐完善的前端界。angular2使用的typescript。与egret使用的语言一致。未来会是react和angular2并分天下吗？谁知道呢。但vue肯定是不服的。是否是崇洋媚外不是很清楚。但amaze ui较之bootstrap、seajs较之requirejs、fis3较之gulp/webpack、vue较之angular/react。egret较之createjs、hbuilder较之sublime/atom等。我皆选择了后者。都是跟随别人的脚步。一定要跟随外国人吗？中国之外。皆是国外。Sir.this way please！ </p>
+<h2 id="我还有话要说。。。"><a href="#我还有话要说。。。" class="headerlink" title="我还有话要说。。。"></a>我还有话要说。。。</h2><p>学得越多。越感觉到自己的无知。单js一项。已经让我目不暇接不知所措该跟随哪个的脚步了。更别提html和css。Less、Sass、Postcss等等。node生态圈也是一堆我方唱罢Ta登场的淘汰赛。昨天还在火热的工具库。转眼优点全被新的工具库吸收。缺点又被工具库克服。换还是不换呢？ </p>
+<p>如同angular2和react。使用angular2需要学习typescript。再简单也是需要基础时间学习的。而使用react基本不需要学习其他语言。框架本身的学习难度半斤八两。保不准日后又出现什么革命性的框架甚至ECMA自己定义了一套框架标准。又要再次学习。 </p>
+<p>如果一个人能力有限。那Ta的精力呢？！</p>
+<p>倘若不停的追赶别人的脚步。不停的学习不能给你带来充实的快乐。那。就放弃做前端吧。至少。等一段时间之后再来。。。至少。等ECMA7发布之后吧。。。 </p>
+<p>我？我很快乐呀。。。哈。！</p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/03/21/A-Lot-Bug-Page-of-Trello-Taco/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">←</strong>
+      <div class="article-nav-title">
+        
+          在Trello&#39;s Taco那充满bug的页面上通过url参数显示你自己的名字详解
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/03/15/Depth-of-Field/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Depth-of-Field - 3D景深(伪)</div>
+      <strong class="article-nav-caption">→</strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+
+
+
+
+  <div id="git-comment"></div>
+<link rel="stylesheet" href="/js/gitcomment/index.css"/>
+
+<script src="/js/gitcomment/index.js"></script>
+
+<script>
+var gitment = new Gitment({
+  id: 'Sat Mar 19 2016 23:30:03 GMT+0800', // 可选。默认为 location.href
+  owner: 'nostarsnow',
+  repo: 'nostarsnow.github.io',
+  oauth: {
+    client_id: 'c85b4116dd5568a953a2',
+    client_secret: '0bfbd427d69accdbece179a9a7e7fe818eeab88d',
+  },
+})
+gitment.render('git-comment')
+</script>
+
+
+
+
+  <div class="post-toc"></div>
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2023 nostar
+    	</div>
+      <div class="footer-right">
+      		
+      </div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+
+<script src="https://unpkg.com/requirejs@2.1.6/require.js"></script>
+
+
+<script src="https://www.unpkg.com/jquery@1.9.1/jquery.min.js"></script>
+
+
+<script src="/js/main.js"></script>
+
+
+<script src="https://s95.cnzz.com/z_stat.php?id=1257879728&web_id=1257879728.js"></script>
+
+
+
+<!--
+ -->
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="https://cdn.bootcss.com/mathjax/2.6.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>
