@@ -393,19 +393,19 @@
 
 
   <div id="git-comment"></div>
-<link rel="stylesheet" href="/js/gitcomment/index.css"/>
-<script src="/js/gitcomment/index.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
 <script>
-var gitment = new Gitment({
-  id: 'Tue Apr 05 2016 21:48:36 GMT+0800', // 可选。默认为 location.href
-  owner: 'nostarsnow',
-  repo: 'nostarsnow.github.io',
-  oauth: {
-    client_id: 'c85b4116dd5568a953a2',
-    client_secret: '0bfbd427d69accdbece179a9a7e7fe818eeab88d',
-  },
+var gitalk = new Gitalk({
+  clientID: 'c85b4116dd5568a953a2', //Client ID
+  clientSecret: '0bfbd427d69accdbece179a9a7e7fe818eeab88d', //Client Secret
+  repo: 'nostarsnow.github.io',//仓库名称
+  owner: 'nostarsnow',//仓库拥有者
+  admin: ['nostarsnow'],
+  id: 'Tue Apr 05 2016 21:48:36 GMT+0800',      // Ensure uniqueness and length less than 50
+  distractionFreeMode: false  // Facebook-like distraction free mode
 })
-gitment.render('git-comment')
+gitalk.render('git-comment')
 </script>
 
 
