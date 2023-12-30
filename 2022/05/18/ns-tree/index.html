@@ -6,13 +6,13 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>vscode插件nstree。图形化操作快速生成项目目录结构树 | nostar&#39;blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="平日里项目开发过程中或者项目初期开发结束后，经常会需要把项目目录结构列出来以供后人和以后的自己快速查阅。通常的方式是使用 md格式。 生成这种格式的md一般是通过cmd tree或者npm包来过滤文件生成树结构再一一添加注释。这种方法好吗？总结一下我认为的优缺点。 在线 demo。包含所有功能演示 git地址 vscode插件商城地址">
+  <meta name="description" content="平日里项目开发过程中或者项目初期开发结束后，经常会需要把项目目录结构列出来以供后人和以后的自己快速查阅。通常的方式是使用 md格式。 生成这种格式的md一般是通过cmd tree或者npm包来过滤文件生成树结构再一一添加注释。这种方法我用起来很不习惯，于是自己做了一个vscode的插件，可以更图形化的来完成这一工作。 在线 demo。包含所有功能演示 git地址 vscode插件商城地址">
 <meta name="keywords" content="小玩意儿">
 <meta property="og:type" content="article">
 <meta property="og:title" content="vscode插件nstree。图形化操作快速生成项目目录结构树">
 <meta property="og:url" content="http://nostarsnow.github.io/2022/05/18/ns-tree/index.html">
 <meta property="og:site_name" content="nostar&#39;blog">
-<meta property="og:description" content="平日里项目开发过程中或者项目初期开发结束后，经常会需要把项目目录结构列出来以供后人和以后的自己快速查阅。通常的方式是使用 md格式。 生成这种格式的md一般是通过cmd tree或者npm包来过滤文件生成树结构再一一添加注释。这种方法好吗？总结一下我认为的优缺点。 在线 demo。包含所有功能演示 git地址 vscode插件商城地址">
+<meta property="og:description" content="平日里项目开发过程中或者项目初期开发结束后，经常会需要把项目目录结构列出来以供后人和以后的自己快速查阅。通常的方式是使用 md格式。 生成这种格式的md一般是通过cmd tree或者npm包来过滤文件生成树结构再一一添加注释。这种方法我用起来很不习惯，于是自己做了一个vscode的插件，可以更图形化的来完成这一工作。 在线 demo。包含所有功能演示 git地址 vscode插件商城地址">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://static.zuhaowan.com/static/zhwfe/static/nostar/nstree/demo.jpg">
 <meta property="og:image" content="https://static.zuhaowan.com/static/zhwfe/static/nostar/nstree/copyPath.png">
@@ -24,10 +24,10 @@
 <meta property="og:image" content="https://static.zuhaowan.com/static/zhwfe/static/nostar/nstree/delFile.png">
 <meta property="og:image" content="https://static.zuhaowan.com/static/zhwfe/static/nostar/nstree/clearUnless.png">
 <meta property="og:image" content="https://static.zuhaowan.com/static/zhwfe/static/nostar/nstree/exportMd.png">
-<meta property="og:updated_time" content="2023-12-29T08:06:56.297Z">
+<meta property="og:updated_time" content="2023-12-30T08:59:31.730Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="vscode插件nstree。图形化操作快速生成项目目录结构树">
-<meta name="twitter:description" content="平日里项目开发过程中或者项目初期开发结束后，经常会需要把项目目录结构列出来以供后人和以后的自己快速查阅。通常的方式是使用 md格式。 生成这种格式的md一般是通过cmd tree或者npm包来过滤文件生成树结构再一一添加注释。这种方法好吗？总结一下我认为的优缺点。 在线 demo。包含所有功能演示 git地址 vscode插件商城地址">
+<meta name="twitter:description" content="平日里项目开发过程中或者项目初期开发结束后，经常会需要把项目目录结构列出来以供后人和以后的自己快速查阅。通常的方式是使用 md格式。 生成这种格式的md一般是通过cmd tree或者npm包来过滤文件生成树结构再一一添加注释。这种方法我用起来很不习惯，于是自己做了一个vscode的插件，可以更图形化的来完成这一工作。 在线 demo。包含所有功能演示 git地址 vscode插件商城地址">
 <meta name="twitter:image" content="https://static.zuhaowan.com/static/zhwfe/static/nostar/nstree/demo.jpg">
   
   
@@ -232,12 +232,12 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>平日里项目开发过程中或者项目初期开发结束后，经常会需要把项目目录结构列出来以供后人和以后的自己快速查阅。通常的方式是使用 <a href="https://github.com/nostarsnow/webpack-multi-seed#%E7%9B%AE%E5%BD%95" target="_blank" rel="noopener">md格式</a>。 生成这种格式的md一般是通过<code>cmd tree</code>或者<code>npm</code>包来过滤文件生成树结构再一一添加注释。这种方法好吗？总结一下我认为的优缺点。</p>
+        <p>平日里项目开发过程中或者项目初期开发结束后，经常会需要把项目目录结构列出来以供后人和以后的自己快速查阅。通常的方式是使用 <a href="https://github.com/nostarsnow/webpack-multi-seed#%E7%9B%AE%E5%BD%95" target="_blank" rel="noopener">md格式</a>。 生成这种格式的md一般是通过<code>cmd tree</code>或者<code>npm</code>包来过滤文件生成树结构再一一添加注释。这种方法我用起来很不习惯，于是自己做了一个vscode的插件，可以更图形化的来完成这一工作。</p>
 <p><a href="https://nostarsnow.github.io/vscode-nstree/" target="_blank">在线 demo。包含所有功能演示</a></p>
 <p><a href="https://github.com/nostarsnow/vscode-nstree" target="_blank">git地址</a></p>
 <p><a href="https://marketplace.visualstudio.com/items?itemName=nostar.nstree" target="_blank">vscode插件商城地址</a></p>
 <a id="more"></a>
-<h2 id="简单说明"><a href="#简单说明" class="headerlink" title="简单说明"></a>简单说明</h2><blockquote>
+<h2 id="MD方式好么？"><a href="#MD方式好么？" class="headerlink" title="MD方式好么？"></a>MD方式好么？</h2><blockquote>
 <p>优点：好吧没什么优点，聊胜于无。</p>
 </blockquote>
 <blockquote>
